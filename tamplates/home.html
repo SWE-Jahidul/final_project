@@ -1,0 +1,327 @@
+{%  extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class=" site-blocks-cover overlay responsive">
+    <img src="{% static 'images/Skyscrapers_of_Shinjuku_2009_January_(revised).jpg' %} " class="img-fluid main_img"
+        alt="Responsive image " style="width: 100%;" data-aos="fade" data-stellar-background-ratio="0.5">
+    <!-- menu Section start  -->
+    <div class="col-sm-12 languageselector ">
+        <nav class=" navbar-fixed-top  navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand logo_title" href="#">BHANDARIA MUNICIPALITY </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Log In </a>
+                    </li>
+                    <li class="nav-item dropdown mr-5">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Select Language
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Bangla</a>
+                            <a class="dropdown-item" href="#">English</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+    </div>
+
+    <div class="col-lg-12 col-md-12 menu_main">
+        <div class="row">
+            <div class="col-lg-3 col-md-3 ">
+
+                <div class="container-fluid ">
+                    <div class="mybtn">
+                        <a class="button">HOME</a>
+                        <a class="button">NEWS</a>
+                        <a class="button">NOTICES</a>
+                        <a class="button">EVENTS</a>
+                        <a class="button">GAlLARES</a>
+                        <a class="button">PEPOLE</a>
+                        <a class="button"> COMPLAIN BOX </a>
+                        <a class="button"> CONTACT </a>
+                    </div>
+                </div>
+
+                <br>
+
+
+                <div class="card">
+                    <div class=" bg-light ">
+                        <img src="{% static 'images/download.jpeg'   %}" style="width:100%;height:400px;"
+                            class="img-fluid" alt="Responsive image" data-aos="fade"
+                            data-stellar-background-ratio="0.5">
+                        <div class="centered weather_details">
+
+                            <h5 class="weather_header text-white text-center"> WEATHER INFO </h5>
+
+                            <div style="overflow: hidden;">
+                                <p class="text-white" style="float: left;">Local Time</p>
+                                <p class="text-white" style="float: right;">3:08 pm </p>
+                            </div>
+                            <div style="overflow: hidden;">
+                                <p class="text-white" style="float: left;">Today
+                                    <small>
+                                        January 29, 2020
+                                    </small> </p>
+                                <p class="text-white" style="float: right;">2c</p>
+                            </div>
+
+                            <div style="overflow: hidden;">
+                                <p class="text-white" style="float: left;">Today
+                                    <small>
+                                        January 29, 2020
+                                    </small> </p>
+                                <p class="text-white" style="float: right;">2c</p>
+                            </div>
+
+                            <div style="overflow: hidden;">
+                                <p class="text-white" style="float: left;">Today
+                                    <small>
+                                        January 29, 2020
+                                    </small> </p>
+                                <p class="text-white" style="float: right;">2c</p>
+                            </div>
+
+
+                            <p class="weather_detail_link text-white"> weather data by <a
+                                    href="www.weather.com">weather.com</a>
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <br>
+                <div class="card">
+                    <div class="container pt-3">
+                        <h6>FEATURED GALLERY
+                        </h6>
+                        <br>
+                        <img class="card-img-top" src="{% static 'images/1-whytheweathe.jpg' %} " style="width:100%"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <p class="galary_title"><a href="#">Streets of Bhandaria</a>
+                                <br> <small>November 17, 2018
+                                </small>
+                            </p>
+                            <p> <a href="#"> More </a></p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-6">
+
+
+
+                <div class="container-fluid">
+                    <div class="half_black text-white ">
+                        <h2 class="main_title pt-3"> <b>Welcome to Bhandaria, </b><br>
+                            <em> the Most Exciting Town of North!</em></h2>
+                    </div>
+
+                    <br>
+                    <!-- choose your interest  -->
+                    <div>
+                        <div class="bg-light text-dark ">
+                            <h3>Choose Your Interest </h3>
+                            <br>
+                            <div class="col-md-12 container-fluid about_city_details ">
+                                <div class="row">
+                                    <div class="col-md-4 container-fluid">
+                                        <h6> <a href="#"> GOVERMENT </a> </h6>
+                                        <li> <a href="">Town Council </a></li>
+                                        <li> <a href=""> Documentation </a></li>
+                                        <li> <a href="">Notices </a></li>
+
+                                    </div>
+                                    <div class="col-md-4 container-fluid">
+                                        <h6> <a href="#">OUR COMMUNITY</a></h6>
+                                        <li> <a href="">Latest News </a></li>
+                                        <li> <a href=""> Upcoming Events </a></li>
+                                        <li> <a href="">Galleries </a></li>
+                                    </div>
+                                    <div class="col-md-4 container-fluid">
+                                        <h6> <a href="#">INTERESTING PLACES</a></h6>
+                                        <li> <a href="">Downtown Cinema</a></li>
+                                        <li> <a href=""> Community Centre </a></li>
+                                        <li> <a href="">Bowling Point </a></li>
+                                    </div>
+                                </div>
+
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-4 container-fluid">
+                                        <h6> <a href="#"> HOME EXAMPLES</a></h6>
+                                        <li> <a href="">Classic Home</a></li>
+                                        <li> <a href=""> Dashboard Home </a></li>
+                                        <li> <a href=""> Magazine Home</a></li>
+                                    </div>
+                                    <div class="col-md-4 container-fluid">
+                                        <h6> <a href="#">PAGE EXAMPLES</a></h6>
+                                        <li> <a href=""> Typography</a></li>
+                                        <li> <a href=""> Search Results </a></li>
+                                        <li> <a href=""> Error 404 </a></li>
+                                    </div>
+                                    <div class="col-md-4 container-fluid">
+                                        <h6> <a href="#"> TOWNPRESS THEME</a></h6>
+                                        <li> <a href=""> Documentation</a></li>
+                                        <li> <a href=""> Support Forum</a></li>
+                                        <li> <a href=""> Purchase </a></li>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <!-- letest news section start  -->
+                        <div>
+                            <div class="bg-light text-dark ">
+                                <h3>Latest News </h3>
+                                <br>
+                                <div class="col-md-12 container-fluid">
+                                    <p class="news">
+                                        <a href="#" class="post_link"
+                                            style="background-image: url('https://preview.lsvr.sk/townpress/wp-content/uploads/sites/3/2017/12/article-10-large.jpg');">
+                                        </a>
+
+                                    </p>
+                                    <h6 class="post_title">Report from Friendly Soccer Match Between TownPress and
+                                        Pressville</h6>
+                                    <p class="news_post_date">
+                                        <span>
+                                            December 1, 2018 in
+                                        </span>
+                                        <span> <a href="#"> Sport</a></span>
+                                    </p>
+                                    <div class="post_content">
+                                        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem ad error
+                                            iusto
+                                            hic quae rerum ut
+                                            voluptatum aut commodi totam. Consequuntur odit natus eaque eos vitae ut
+                                            quisquam id? Veritatis.</p>
+
+                                        <p><a href="#"> Read More</a></p>
+                                    </div>
+                                </div>
+                                <div class="more_news_link">
+                                    <ul>
+                                        <li>
+                                            <a href="#"> New Housing Complex in TownPress Nearly Complete</a>
+                                        </li>
+                                        <li><a href="#"> New Housing Complex in TownPress Nearly Complete</a></li>
+                                        <li><a href="#"> New Housing Complex in TownPress Nearly Complete</a></li>
+
+
+                                    </ul>
+                                    <p id="more_notice">
+                                        <a href="#">More News</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-lg-3">
+                <div class="bg-light">
+                    <div class="container">
+                        <h5 class="notice_heading">NOTICES</h5>
+
+                        <p class="news_title_for_notice"> <a href="#">Soccer Tournament Timetable</a>
+                            <br> <small>December 1, 2018 in Sport
+                            </small>
+                        </p>
+                        <p class="news_title_for_notice"> <a href="#">Soccer Tournament Timetable</a>
+                            <br><small>December 1, 2018
+                                in Sport
+                            </small></p>
+                        <p class="news_title_for_notice"> <a href="#">Soccer Tournament Timetable</a>
+                            <br> <small>December 1, 2018 in Sport
+                            </small></p>
+
+                        <p class="news_title_for_notice" id="more_notice"> <a href="#">More Notices</a></p>
+
+                    </div>
+
+                </div>
+
+                <br>
+
+                <div class="card">
+                    <div class="container pt-3">
+                        <h6>FEATURED GALLERY
+                        </h6>
+                        <br>
+                        <img class="card-img-top" src="../images/1-whytheweathe.jpg" style="width:100%"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <p class="galary_title"><a href="#">Streets of Bhandaria</a>
+                                <br> <small>November 17, 2018
+                                </small>
+                            </p>
+                            <p> <a href="#"> More </a></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <br>
+        <br>
+        <!-- Footer Section  -->
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <h6>About</h6>
+                        <p class="text-justify">TownPress is a premium Municipality WordPress theme. It is best
+                            suited to be used as a presentation site for small to medium towns. You will find an
+                            extensive list of features to help create the website your town needs!</p>
+                    </div>
+                    <div class="col-xs-6 col-md-3">
+                        <h6>Categories</h6>
+                        <ul class="footer-links">
+                            <li><a href="">UPCOMING EVENTS </a></li>
+                            <li><a href="">
+                                    Kids Sports Day</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-6 col-md-3">
+                        <h6>Quick Contract </h6>
+                        <ul class="footer-links">
+                            <li><a href="http://scanfcode.com/about/">01794895700</a></li>
+                            <li><a href="http://scanfcode.com/contact/">programmerjahid162@gmail.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+            </div>
+
+    </footer>
+
+
+</div>
+
+
+{% endblock %}

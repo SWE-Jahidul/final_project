@@ -1,0 +1,114 @@
+/* REsponsive break point  */
+/* // Extra small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap */
+
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+
+} 
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  
+  }
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+ 
+  }
+
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {  }
+
+
+@media (max-width: 575.98px) {  }
+
+@media (max-width: 767.98px) {  }
+
+@media (max-width: 991.98px) {
+  .footer_half_black {
+    background: rgba(0, 0, 0, 0.7);
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding: 2%;
+    margin-top: -37%;
+  }
+  }
+@media (max-width: 1199.98px) {  }
+
+/* for max and min width  */
+
+@media (max-width: 575.98px) {
+  
+    .mybtn {
+        
+        margin-top: 50%;
+     }
+
+     .languageselector {
+        position: absolute;
+        margin-left: 6%;
+        left: 46%;
+        transform: translate(-50%, -50%);
+      }
+      
+      .map{
+        
+        margin-left:20%;
+        width: 30%;
+      }  
+      .logo_title{
+        width: 25%;
+      }
+      #serch{
+        top: 20%;
+        margin-left: 3%;
+        width: 100%;
+      }  
+
+      .footer_half_black {
+        background: rgba(0, 0, 0, 0.7);
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        color: white;
+        text-align: center;
+        
+        margin-top: -100%;
+      }
+      .footer_detail
+      {
+       text-align: center;
+      }
+
+      /* weather  */
+      .weather_details{
+        position: relative;
+        text-align: center;
+        color: white;
+        margin-top: -63%;
+      }
+
+      .logo_title{
+        padding-top: 36%;
+        padding-left: 5%;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+      }
+
+  }
+
+@media (min-width: 576px) and (max-width: 767.98px) { 
+
+ }
+
+@media (min-width: 768px) and (max-width: 991.98px) {  }
+
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+
+ }
+
+@media (min-width: 1200px) {  }

@@ -1,0 +1,514 @@
+
+* {
+	margin: 0px; 
+	padding: 0px; 
+	box-sizing: border-box;
+}
+
+
+@font-face {
+  font-family: Montserrat-Bold;
+  src: url('../fonts/montserrat/Montserrat-Bold.ttf'); 
+}
+
+@font-face {
+  font-family: Montserrat-SemiBold;
+  src: url('../fonts/montserrat/Montserrat-SemiBold.ttf'); 
+}
+
+@font-face {
+  font-family: Montserrat-Regular;
+  src: url('../fonts/montserrat/Montserrat-Regular.ttf'); 
+}
+
+/* body part  */
+body
+{
+  background-attachment: fixed;
+  width: 100%;
+  background-color: whitesmoke;
+  font-family: Montserrat-Regular, sans-serif;
+}
+
+
+/* main logo title  */
+.logo_title{
+  font-family: 'Bad Script';
+  font-size: 22px;
+  font-weight: bolder;
+  color: white;
+  margin-left: 3%;
+  position: relative;
+  z-index: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+
+}
+/* select your language  */
+.languageselector {
+  position: absolute;
+  top: 1px;
+  margin-left: -1%;
+  font-family:  Montserrat-Regular;
+}
+
+.s_language{
+  position: relative;
+  margin: 5px;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+  letter-spacing: 1px;
+  font-family: Montserrat-Regular;
+
+}
+
+/* map section  */
+  .map{
+    position: relative;
+    margin-top:4px;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+    letter-spacing: 1px;
+    font-family: Montserrat-Regular;
+
+  }
+/* all button design  */
+  .btn:hover {
+    background-color: #ff4d4d;
+    color: white;
+  }
+
+/* Secrch button of home page  */
+  #serch{
+    position: relative;
+    top: 8%;
+   margin-left: 5%;
+   -webkit-transition: all 0.4s;
+   -o-transition: all 0.4s;
+   -moz-transition: all 0.4s;
+   transition: all 0.4s;
+   letter-spacing: 1px;
+   font-family: Montserrat-Regular;
+  }
+
+/* main menu section  */
+  .menu_main{
+    position: absolute;
+    top: 15%;
+    margin-left:3%;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+    letter-spacing: 1px;
+    font-family: Montserrat-Regular;
+    letter-spacing: 1px;
+
+  }
+
+/* main title design  */
+  .main_title{
+    position: relative;
+    margin: 0 0 24px 0;
+    padding: 0 30px 24px 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
+  /* more news link */
+  .more_news_link
+  {
+    margin-left: 6%;
+  }
+/* transparent the black colore  */
+  .half_black {
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  li a {
+    font-size: 15px;
+    color: #ff4d4d;
+  }
+
+ li a :hover{
+   color: red;
+ }
+  h6 a{
+    font-size: small;
+    font-weight: bold;
+    color: black;
+  }
+
+  h3{
+    padding-top: 3%;
+    margin-left: 3%;
+  }
+  /* background section image  */
+  .main_img
+  {
+          
+      /* Add the blur effect */
+      filter: blur(6px);
+      -webkit-filter: blur(6px);
+      
+      /* Full height */
+      height: 100%; 
+      
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    
+  }
+
+  /*virtical  button  for main menu */
+.mybtn a {
+  background-color: rgb(218, 63, 63);
+  border: 1px solid white;
+  width: 100%;
+  color: white;
+  font-size: 14px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  letter-spacing: 1px;
+
+}
+/* verticale button heading  */
+.mybtn a:hover {
+  background-color: #ff0000;
+  color: white;
+}
+
+
+/* post link  */
+  .post_link {
+    display: block;
+    height: 160px;
+    background-size: cover;
+    background-position: center 0;
+}
+/* post title  */
+.post_title{
+  color: #ff4d4d;
+}
+
+/* notice title  */
+.container .news_title_for_notice a{
+color: #ff4d4d;
+padding-bottom: 1rem;
+font-size: small;
+font-weight: bold;
+}
+/* about City Details  */
+
+.about_city_details{
+  letter-spacing: 1px;
+ font-size: 14px;
+
+}
+/* notics heading  */
+.notice_heading{
+  padding-top: 1rem;
+  
+}
+
+/* more notices   */
+#more_notice
+{
+  padding-bottom: 1rem;
+}
+
+/* intersting places  */
+.intersting_places{
+  padding-top: 1rem;
+}
+
+/* weather result table  */
+.table
+{
+width: 80%;
+
+}
+
+.weather_details
+{
+  font-size: smaller;
+  position: relative;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+  }
+
+
+tr th{
+  color:white;
+}
+
+
+/* for only date  */
+.date{
+  font-size: 10px;
+
+}
+
+
+
+/* link button colore  */
+p a{
+  color: #ff0000;
+}
+/* footer section upcomeing even design  */
+.footer_upcoming_events
+{
+  /* font-size: smaller; */
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/*  social media  */
+
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+
+}
+/* social media button hovar  */
+.fa:hover {
+    opacity: 0.5;
+}
+
+/* for facebook */
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+/*  for youtube */
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+
+}
+/* for twitter */
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+/* pepole baground  */
+
+.People_details
+{
+  background-color: white;
+ 
+}
+
+
+.map-responsive{
+    overflow:hidden;
+    padding-bottom:50%;
+    position:relative;
+    height:0;
+}
+.map-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+
+#event_date
+{
+  letter-spacing: 1px;
+}
+#event_time
+{
+  letter-spacing: 1px;
+}
+#location
+{
+  letter-spacing: 1px;
+}  
+
+
+/*footer*/
+
+.site-footer
+{
+  background-color:#26272b;
+  padding:45px 0 20px;
+  font-size:15px;
+  line-height:24px;
+  color:#737373;
+  margin-left: -70px;
+}
+.site-footer hr
+{
+  border-top-color:#bbb;
+  opacity:0.5
+}
+.site-footer hr.small
+{
+  margin:20px 0
+}
+.site-footer h6
+{
+  color:#fff;
+  font-size:16px;
+  text-transform:uppercase;
+  margin-top:5px;
+  letter-spacing:2px
+}
+.site-footer a
+{
+  color:#737373;
+}
+.site-footer a:hover
+{
+  color:#3366cc;
+  text-decoration:none;
+}
+.footer-links
+{
+  padding-left:0;
+  list-style:none
+}
+.footer-links li
+{
+  display:block
+}
+.footer-links a
+{
+  color:#737373
+}
+.footer-links a:active,.footer-links a:focus,.footer-links a:hover
+{
+  color:#3366cc;
+  text-decoration:none;
+}
+.footer-links.inline li
+{
+  display:inline-block
+}
+.site-footer .social-icons
+{
+  text-align:right
+}
+.site-footer .social-icons a
+{
+  width:40px;
+  height:40px;
+  line-height:40px;
+  margin-left:6px;
+  margin-right:0;
+  border-radius:100%;
+  background-color:#33353d
+}
+.copyright-text
+{
+  margin:0
+}
+@media (max-width:991px)
+{
+  .site-footer [class^=col-]
+  {
+    margin-bottom:30px
+  }
+}
+@media (max-width:767px)
+{
+  .site-footer
+  {
+    padding-bottom:0
+  }
+  .site-footer .copyright-text,.site-footer .social-icons
+  {
+    text-align:center
+  }
+}
+.social-icons
+{
+  padding-left:0;
+  margin-bottom:0;
+  list-style:none
+}
+.social-icons li
+{
+  display:inline-block;
+  margin-bottom:4px
+}
+.social-icons li.title
+{
+  margin-right:15px;
+  text-transform:uppercase;
+  color:#96a2b2;
+  font-weight:700;
+  font-size:13px
+}
+.social-icons a{
+  background-color:#eceeef;
+  color:#818a91;
+  font-size:16px;
+  display:inline-block;
+  line-height:44px;
+  width:44px;
+  height:44px;
+  text-align:center;
+  margin-right:8px;
+  border-radius:100%;
+  -webkit-transition:all .2s linear;
+  -o-transition:all .2s linear;
+  transition:all .2s linear
+}
+.social-icons a:active,.social-icons a:focus,.social-icons a:hover
+{
+  color:#fff;
+  background-color:#29aafe
+}
+.social-icons.size-sm a
+{
+  line-height:34px;
+  height:34px;
+  width:34px;
+  font-size:14px
+}
+.social-icons a.facebook:hover
+{
+  background-color:#3b5998
+}
+.social-icons a.twitter:hover
+{
+  background-color:#00aced
+}
+.social-icons a.linkedin:hover
+{
+  background-color:#007bb6
+}
+.social-icons a.dribbble:hover
+{
+  background-color:#ea4c89
+}
+@media (max-width:767px)
+{
+  .social-icons li.title
+  {
+    display:block;
+    margin-right:0;
+    font-weight:600
+  }
+}
