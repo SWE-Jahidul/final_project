@@ -64,3 +64,12 @@ def register(request):
 
     else:
         return render(request,'registration.html')
+
+
+
+
+
+def logout(request):
+    auth.logout(request)
+    return redirect('/')
+
