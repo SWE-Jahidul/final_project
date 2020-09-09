@@ -9,8 +9,8 @@ def home(request):
     return render(request, 'home.html')
 
 
-def login(request):
-    return render(request, 'login.html')
+# def login(request):
+#     return render(request, 'login.html')
 
 
 # def registration(request):
