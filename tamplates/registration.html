@@ -13,7 +13,8 @@
               <div class="text-center">
              <h3> Registration </h3>
             </div>
-             <form action="registration" method="post" >
+             <form action="register" method="post" >
+              {% csrf_token %}
 
           <div class="form-group  text_filed input-container mt-5">
             <i class="fa fa-user icon"></i>
@@ -22,19 +23,30 @@
 
           <div class="form-group  text_filed input-container ">
             <i class="fa fa-phone icon"></i>
-            <input name="phone_number" type="text" class="shadow form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Phone Number">
+            <input name="phone" type="number" class="shadow form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Phone Number">
           </div>
 
 
           <div class="form-group text_filed input-container">
             <i class="fa fa-key icon"></i>
-            <input name="password" type="password" class="shadow form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Your Password">
+            <input name="password1" type="password" class="shadow form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Your Password">
+          </div>
+          <div class="form-group text_filed input-container">
+            <i class="fa fa-key icon"></i>
+            <input name="password2" type="password" class="shadow form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Your Password">
           </div>
           <center>
-            <input type="submit">
-            <!-- <button id='login_btn' type="button" class="btn btn-outline-danger"> Registration  </button> -->
+            <input id='login_btn' type="submit" class="btn btn-outline-danger">
           </center>
         </form>
+
+        <div >
+          {% for message in messages %}
+         
+          <h3>  {{ message }}</h3>
+
+          {% endfor %}
+        </div>
          </div>
     </div>
      </div>
