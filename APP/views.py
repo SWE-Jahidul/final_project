@@ -28,3 +28,12 @@ def mayor_and_councilor(request):
 
 def notice(request):
     return render(request, 'notices.html')
+
+
+
+def news(request):
+    return render(request,'news.html')
+
+
+
+
