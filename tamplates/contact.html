@@ -5,7 +5,7 @@
 {% block content %}
 
      <div class=" container-fluid site-blocks-cover overlay responsive">
-        <img src="../images/Skyscrapers_of_Shinjuku_2009_January_(revised).jpg" class="img-fluid main_img"
+        <img src="{% static 'images/Skyscrapers_of_Shinjuku_2009_January_(revised).jpg' %}" class="img-fluid main_img"
             alt="Responsive image " style="width: 100%;" data-aos="fade" data-stellar-background-ratio="0.5">
 
         <div class="col-sm-12 languageselector container-fluid">
@@ -47,17 +47,14 @@
                 <div class="col-md-3">
                     <div class="container-fluid ">
                         <div class="mybtn">
-                            <a class="button">HOME</a>
-                            <a class="button">NEWS</a>
-                            <a class="button">NOTICES</a>
-                            <a class="button">DIRECTORY</a>
-                            <a class="button">EVENTS</a>
-                            <a class="button">GAlLARES</a>
-                            <a class="button">DOCUMENTS</a>
-                            <a class="button">PEPOLE</a>
-                            <a class="button">INSTITUTION </a>
-                            <a class="button"> COMPLAIN BOX </a>
-                            <a class="button"> CONTACT </a>
+                            <a class="button" href="{% url 'home' %}">HOME</a>
+                            <a class="button" href="{% url 'news' %}">NEWS</a>
+                            <a class="button" href="{% url 'notice' %}">NOTICES</a>
+                            <a class="button" href="{% url 'events' %}">EVENTS</a>
+                            <a class="button" href="">GAlLARES</a>
+                            <a class="button" href="{% url 'mayor_and_councilor' %}">Mayor & Councilor</a>
+                            <a class="button" href="{% url 'complain' %}"> COMPLAIN BOX </a>
+                            <a class="button" href="#"> CONTACT </a>
                         </div>
                     </div>
                     <br>
@@ -66,7 +63,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class=" bg-light ">
-                                    <img src="../images/download.jpeg" style="width:100%;height:400px;" class="img-fluid"
+                                    <img src="{% static 'images/download.jpeg' %}" style="width:100%;height:400px;" class="img-fluid"
                                         alt="Responsive image" data-aos="fade" data-stellar-background-ratio="0.5">
                                     <div class="centered weather_details">
 
@@ -121,7 +118,7 @@
                                     <h6>FEATURED GALLERY
                                     </h6>
                                     <br>
-                                    <img class="card-img-top" src="../images/1-whytheweathe.jpg" style="width:100%"
+                                    <img class="card-img-top" src="{% static 'images/1-whytheweathe.jpg' %}" style="width:100%"
                                         alt="Card image cap">
                                     <div class="card-body">
                                         <p class="galary_title"><a href="#">Streets of Bhandaria</a>
@@ -272,95 +269,41 @@
             </div>
                 <br><br><br>
                 <!-- footer section -->
-                <div class="container-fluid">
-                    <img src="../images/Skyscrapers_of_Shinjuku_2009_January_(revised).jpg" class="img-fluid footer_image "
-                        alt="Responsive image " style="width: 100%; height: 300px;" data-aos="fade"
-                        data-stellar-background-ratio="0.5">
-
-                    <!-- <footer class="footer_half_black "> -->
-                    <!--  testing end  -->
-                    <div class="col-md-12 footer_half_black">
+                <footer class="site-footer">
+                    <div class="container">
                         <div class="row">
-                            <div class="col-md-3 ">
-                                <h6> <b> ABOUT CITY</b>
-                                </h6>
-                                <br>
-                                <p class="footer_detail">TownPress is a premium Municipality WordPress theme. It is
-                                    best suited to be used
-                                    as
-                                    a presentation site for small to medium towns.
-                                    You will find an extensive list of features to help create the website your town
-                                    needs!</p>
+                            <div class="col-sm-12 col-md-6">
+                                <h6>About</h6>
+                                <p class="text-justify">TownPress is a premium Municipality WordPress theme. It is best
+                                    suited to be used as a presentation site for small to medium towns. You will find an
+                                    extensive list of features to help create the website your town needs!</p>
                             </div>
-                            <!-- upcoming events  -->
-                            <div class="col-md-3">
-                                <h6> <b>UPCOMING EVENTS </b>
-                                </h6>
-                                <br>
-                                <p class="footer_upcoming_events footer_detail">
-                                    <a href="#" class=""> Kids Sports Day </a>
-                                    <br>
-                                    <small class="">8:00 am - 5:00 pm
-                                    </small> <br>
-                                    <small><a href="#" class="">TownPress Stadium</a></small>
-                                </p>
-                                <br>
-                                <p class="footer_upcoming_events footer_detail">
-                                    <a href="#" class=""> Kids Sports Day </a>
-                                    <br>
-                                    <small class="">8:00 am - 5:00 pm
-                                    </small> <br>
-
-                                    <small> <a href="#" class="">TownPress Stadium</a></small>
-                                </p>
+                            <div class="col-xs-6 col-md-3">
+                                <h6>Categories</h6>
+                                <ul class="footer-links">
+                                    <li><a href="">UPCOMING EVENTS </a></li>
+                                    <li><a href="">
+                                            Kids Sports Day</a>
+                                    </li>
+                                </ul>
                             </div>
-                            <!-- important Forms  -->
-                            <div class="col-md-3 ">
-                                <h6 class="">
-                                    <b> IMPORTANT FORMS </b>
-                                </h6>
-                                <br>
-                                <p class="footer_detail">
-                                    <a href="#" class=" "> Town Board Applications
-                                    </a>
-                                    <br> <small class=""> December 2, 2018
-                                    </small>
-                                    <br>
-                                    <a href="#" class=""> Town Board Applications
-                                    </a>
-                                    <br> <small class=""> December 2, 2018
-                                    </small>
-                                </p>
-                                <br>
-                                <p class="footer_detail"><a class="" href="#">More Documents </a></p>
-
-                            </div>
-                            <div class="col-md-3">
-                                <h6> <b>QUICK CONTACT </b>
-                                </h6>
-                                <br>
-                                <p class=" footer_detail"> P.O. Box 123 TownPress
-                                    VT 12345</p>
-                                <p class="footer_detail">
-                                    Phone: (123) 456-7890
-                                </p>
-                                <p class=" footer_detail">Fax: (123) 456-7891
-                                </p>
-                                <p class=" footer_detail"> Email : <a href="#">townpress@example.org</a></p>
+                            <div class="col-xs-6 col-md-3">
+                                <h6>Quick Contract </h6>
+                                <ul class="footer-links">
+                                    <li><a href="http://scanfcode.com/about/">01794895700</a></li>
+                                    <li><a href="http://scanfcode.com/contact/">programmerjahid162@gmail.com</a></li>
+                                </ul>
                             </div>
                         </div>
-                        <a href="#" class="fa fa-facebook"></a>
-                        <a href="#" class="fa fa-youtube"></a>
-                        <a href="#" class="fa fa-twitter"></a>
-
+                        <hr>
                     </div>
-
-                    <!-- </footer> -->
-
-                </div>
+        
+                </footer>
 
             </div>
         </div>
+
+        
     </div>
 
 

@@ -9,14 +9,6 @@ def home(request):
     return render(request, 'home.html')
 
 
-# def login(request):
-#     return render(request, 'login.html')
-
-
-# def registration(request):
-#         return render(request, 'registration.html')
-
-
 def complain(request):
     return render(request,'compalin.html')
 
@@ -35,5 +27,14 @@ def news(request):
     return render(request,'news.html')
 
 
+def events(request):
+    return render(request,'events.html')
 
+def gallary(request):
+    return render(request,'gallary.html')
+
+
+
+def contact(request):
+    return render(request,'contact.html')
 
