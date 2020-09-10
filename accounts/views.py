@@ -4,15 +4,9 @@ from django import forms
 from django.contrib import messages
 
 # Create your views here.
-# logout 
 
 
-
-
-
-
-
-# User Registration 
+# User Login  
 def login(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -67,8 +61,7 @@ def register(request):
 
 
 
-
-
+# logout 
 def logout(request):
     auth.logout(request)
     return redirect('/')

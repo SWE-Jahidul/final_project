@@ -15,9 +15,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Log In </a>
-                    </li>
+                   
                     <li class="nav-item dropdown mr-5">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -47,8 +45,9 @@
                         <a class="button" href="{% url 'notice' %}">NOTICES</a>
                         <a class="button" href="{% url 'events' %}">EVENTS</a>
                         <a class="button" href="">GAlLARES</a>
-                        <a class="button" href="{% url 'mayor_and_councilor' %}">Mayor & Councilor</a>
+                        <a class="button" href="{% url 'mayor_and_councilor' %}">MAYOR AND COUNCILOR</a>
                         <a class="button" href="{% url 'complain' %}"> COMPLAIN BOX </a>
+                        <a class="button" href="{% url 'compalin_list_chart_view' %}"> VIEW COMPLAIN  </a>
                         <a class="button" href="{% url 'contact' %}"> CONTACT </a>
                     </div>
                 </div>
@@ -120,11 +119,19 @@
 
 
             <div class="col-md-7">
-
                 <div class="card mb-3">
                     <img src="{% static 'images/download.jpeg' %}"  style="height: 300px;" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
+                        <h5 class="card-title">News Title </h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                  </div>
+                <br>
+                <div class="card mb-3">
+                    <img src="{% static 'images/download.jpeg' %}"  style="height: 300px;" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">News Title </h5>
                       <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                       <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                     </div>
@@ -133,23 +140,24 @@
                 <div class="card mb-3">
                     <img src="{% static 'images/download.jpeg' %}"  style="height: 300px;" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <h5 class="card-title">News Title </h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                       <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                     </div>
                   </div>
                 <br>
-                <div class="card mb-3">
-                    <img src="{% static 'images/download.jpeg' %}"  style="height: 300px;" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
-                  </div>
-                <br>
+<!-- Pagination  -->
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                      <li class="page-item"><a class="page-link" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                  </nav>
             </div>
-
+<!-- Pagination  -->
         </div>
 
         <br>

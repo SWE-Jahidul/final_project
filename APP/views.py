@@ -38,3 +38,7 @@ def gallary(request):
 def contact(request):
     return render(request,'contact.html')
 
+
+
+def compalin_list_chart_view(request):
+    return render(request,'compalin_list_chart_view.html')

@@ -14,6 +14,7 @@ class Notice(models.Model):
 
 
 class Mayor_and_councilor(models.Model):
+    mayor_or_councilor_image =models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
     mayor_or_councilor_name = models.CharField(max_length=150,default='') 
     deginaion = models.CharField(max_length=100,default='') 
     email = models.CharField(max_length=150,default='') 
@@ -43,5 +44,13 @@ class Contract(models.Model):
 
     def __str__(self):
         return self.contact_number_title
+
+
+class Evnets(models.Model):
+    
+    Events_images = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    Events_title = models.CharField(max_length=150,default='')
+    Events_time = models.DateTimeField(auto_now_add=True ) 
+    Ecent_location = models.CharField(max_length=200,default='')
 
 

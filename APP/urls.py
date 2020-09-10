@@ -12,6 +12,10 @@ urlpatterns = [
     path('events/', views.events , name = 'events'),
     path('gallary/', views.gallary , name = 'gallary'),
     path('contact/',views.contact , name ='contact'),
+    path('compalin_list_chart_view/',views.compalin_list_chart_view , name ='compalin_list_chart_view'),
 
 
 ]
+
+
+
