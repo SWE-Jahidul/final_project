@@ -137,6 +137,7 @@
                 <!--End Fetured gallary -->
 
             </div>
+           
             <div class="col-md-5 container-fluid">
                 <div class="half_black text-white ">
                     <h2 class="main_title"> <b class="pt-3">Contact </b><br>
@@ -146,86 +147,18 @@
                 <div class="card container">
                     <table class="table">
                         <thead>
+                            {% for c in cont %}
                             <tr>
-                                <th class="text-dark">Clerks Office</th>
-                                <th class="text-dark">01795895700</th>
+                                <th class="text-dark"> {{ c.contact_number_title }}</th>
+                                <th class="text-dark">{{ c.phone_number}}</th>
                             </tr>
-                            <tr>
-                                <th class="text-dark">Treasures Office</th>
-                                <th class="text-dark">01795895700</th>
-                            </tr>
-                            <tr>
-                                <th class="text-dark">Managers Office</th>
-                                <th class="text-dark">01795895700</th>
-                            </tr>
-                            <tr>
-                                <th class="text-dark">Accounting</th>
-                                <th class="text-dark">01795895700</th>
-                            </tr>
-                            <tr>
-                                <th class="text-dark">Building Services </th>
-                                <th class="text-dark">01795895700</th>
-                            </tr>
+                            {% endfor %}
                         </thead>
                     </table>
                 </div>
-                <br>
-                <div class="card container">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th class="text-dark">Water Department</th>
-                                <th class="text-dark">01795895700</th>
-                            </tr>
-                            <tr>
-                                <th class="text-dark">Engineering Office</th>
-                                <th class="text-dark">01795895700</th>
-                            </tr>
-                            <tr>
-                                <th class="text-dark">Fire Department </th>
-                                <th class="text-dark">01795895700</th>
-                            </tr>
-                            <tr>
-                                <th class="text-dark"> Police Department </th>
-                                <th class="text-dark">01795895700</th>
-                            </tr>
-                            <tr>
-                                <th class="text-dark"> Premitting Office </th>
-                                <th class="text-dark">01795895700</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
-                <br>
-                <br>
-                <div class="card container">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th class="text-dark"> Cemeteries and Parks </th>
-                                <th class="text-dark">01795895700</th>
-                            </tr>
-                            <tr>
-                                <th class="text-dark"> Recreation </th>
-                                <th class="text-dark">01795895700</th>
-                            </tr>
-                            <tr>
-                                <th class="text-dark"> Public Works </th>
-                                <th class="text-dark">01795895700</th>
-                            </tr>
-                            <tr>
-                                <th class="text-dark"> Community Services </th>
-                                <th class="text-dark">01795895700</th>
-                            </tr>
-                            <tr>
-                                <th class="text-dark">Public Libary </th>
-                                <th class="text-dark">01795895700</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
-
             </div>
+
+        
             <div class="col-md-3 notices_div">
                 <div class="bg-light">
                     <div class="container">

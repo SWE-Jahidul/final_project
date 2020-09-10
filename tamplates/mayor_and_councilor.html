@@ -13,7 +13,7 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
-                    
+
                     <li class="nav-item dropdown mr-5">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -45,7 +45,7 @@
                         <a class="button" href="">GAlLARES</a>
                         <a class="button" href="#">MAYOR AND COUNCILOR</a>
                         <a class="button" href="{% url 'complain' %}"> COMPLAIN BOX </a>
-                        <a class="button" href="{% url 'compalin_list_chart_view' %}"> VIEW COMPLAIN  </a>
+                        <a class="button" href="{% url 'compalin_list_chart_view' %}"> VIEW COMPLAIN </a>
                         <a class="button" href="{% url 'contact' %}"> CONTACT </a>
                     </div>
                 </div>
@@ -113,55 +113,29 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
             <div class="col-md-7">
                 <div class="row">
-                    <div class="col-md-4">
-
-                        <div class="card">
-                            <img src="{% static 'images/men.jpg'  %}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Jahidul islam </h5>
-                                <p class="card-text" id="event_date"> Mayor </p>
-                                <p class=" " id="event_time"> programmerjahid162@gmail.com</p>
-                            </div>
-                        </div>
-                    </div>
+                    {% for mayor in mayor_con %}
                     <div class="col-md-4">
                         <div class="card">
                             <img src="{% static 'images/men.jpg'  %}" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Jahidul islam </h5>
-                                <p class="card-text" id="event_date"> councilor </p>
-                                <p class=" " id="event_time"> programmerjahid162@gmail.com</p>
+                                <h5 class="card-title">{{ mayor.mayor_or_councilor_name }} </h5>
+                                <p class="card-text" id="event_date"> {{ mayor.deginaion }} </p>
+                                <p class=" " id="event_time">{{ mayor.email }}</p>
+                                <br>
+                                <p class=" " id="event_time">{{ mayor.about }}</p>
                             </div>
                         </div>
                     </div>
-
-                    <br>
-
-                    <div class="col-md-4">
-                        <div class="card"> <img src="{% static 'images/men.jpg'  %}" class="card-img-top" alt="...">
-
-                            <div class="card-body">
-                                <h5 class="card-title">Jahidul islam </h5>
-                                <p class="card-text" id="event_date"> councilor </p>
-                                <p class=" " id="event_time"> programmerjahid162@gmail.com</p>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
                 <br>
 
             </div>
-
         </div>
-
         <br>
-        <br>
-
 
         <!-- Footer Section  -->
         <footer class="site-footer">
@@ -194,10 +168,6 @@
             </div>
     </div>
     </footer>
-
 </div>
 </div>
-
-
-
 {% endblock %}

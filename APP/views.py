@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User,auth
 
 
-from .models import Notice,News,Evnets
+from .models import Notice,News,Evnets,Mayor_and_councilor,Contract
 
 from django.http import HttpResponse
 # Create your views here.
@@ -16,7 +16,13 @@ def complain(request):
 
 
 def mayor_and_councilor(request):
-    return render(request, 'mayor_and_councilor.html')
+    
+    mayor_con = Mayor_and_councilor.objects.all()
+    context = {
+        "mayor_con":mayor_con
+    }
+
+    return render(request, 'mayor_and_councilor.html',context)
 
 
 def notice(request):
@@ -26,7 +32,6 @@ def notice(request):
         "notice":notice
     }
     return render(request, 'notices.html',context)
-
 
 
 def news(request):
@@ -48,17 +53,17 @@ def events(request):
     return render(request,'events.html',context)
 
 
-
-
-
-
 def gallary(request):
     return render(request,'gallary.html')
 
 
 
 def contact(request):
-    return render(request,'contact.html')
+    cont = Contract.objects.all()
+    context = {
+        "cont":cont
+    }
+    return render(request,'contact.html',context)
 
 
 
