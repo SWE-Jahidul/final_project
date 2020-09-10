@@ -1,5 +1,7 @@
 from django.db import models
 
+from django.contrib.auth.models import User
+
 # Create your models here.
 
 class Notice(models.Model):
@@ -25,9 +27,8 @@ class Mayor_and_councilor(models.Model):
 
 
 
-
-
 class News(models.Model):
+    # news_images = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
     news_title = models.CharField(max_length=150, default='') 
     news_details = models.CharField(max_length=1024*3 , default='')
     news_date = models.DateTimeField(auto_now_add=True )
@@ -37,7 +38,6 @@ class News(models.Model):
 
     
     
-
 class Contract(models.Model):
     contact_number_title =  models.CharField(max_length=150,default='')
     phone_number = models.IntegerField()
@@ -50,7 +50,12 @@ class Evnets(models.Model):
     
     Events_images = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
     Events_title = models.CharField(max_length=150,default='')
-    Events_time = models.DateTimeField(auto_now_add=True ) 
-    Ecent_location = models.CharField(max_length=200,default='')
+    e_time = models.CharField(max_length=150,default='')
+    e_date = models.CharField(max_length=150,default='')
+    Ecent_location =models.CharField(max_length=150,default='')
+
+
+    def __str__(self):
+        return self.Events_title
 
 

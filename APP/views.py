@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User,auth
 
 
+from .models import Notice,News,Evnets
 
 from django.http import HttpResponse
 # Create your views here.
@@ -19,16 +20,37 @@ def mayor_and_councilor(request):
 
 
 def notice(request):
-    return render(request, 'notices.html')
+
+    notice = Notice.objects.all()
+    context = {
+        "notice":notice
+    }
+    return render(request, 'notices.html',context)
 
 
 
 def news(request):
-    return render(request,'news.html')
+    news_w = News.objects.all()
+    context = {
+        "news_w":news_w
+    }
+    return render(request,'news.html',context)
+
+
 
 
 def events(request):
-    return render(request,'events.html')
+    evnet = Evnets.objects.all()
+    context = {
+        "evnet":evnet
+    }
+
+    return render(request,'events.html',context)
+
+
+
+
+
 
 def gallary(request):
     return render(request,'gallary.html')

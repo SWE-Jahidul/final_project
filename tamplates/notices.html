@@ -42,10 +42,10 @@
             <div class="container-fluid ">
                <div class="mybtn">
                   <a class="button" href="{% url 'home' %}">HOME</a>
-                  <a class="button" href="{% url 'news' %">NEWS</a>
+                  <a class="button" href="{% url 'news' %}">NEWS</a>
                               <a class="button" href="#">NOTICES</a>
-                              <a class="button" href="{% url 'events' %}">EVENTS</a>
-                  <a class="button" href="">GAlLARES</a>
+                  <a class="button" href="{% url 'events' %}">EVENTS</a>
+                  <a class="button" href="">GALLERY</a>
                   <a class="button" href="{% url 'mayor_and_councilor' %}">MAYOR AND COUNCILOR</a>
                   <a class="button" href="{% url 'complain' %}"> COMPLAIN BOX </a>
                   <a class="button" href="{% url 'compalin_list_chart_view' %}"> VIEW COMPLAIN </a>
@@ -117,112 +117,32 @@
             </div>
 
          </div>
-
+         {% for notc in notice %}
 
          <div class="col-md-7">
 
             <div class="card">
                <div class="card-header" style="color: red;">
-                  <a href=""> Bongobondhu gold Cup </a>
+                  <a href=""> {{ notc.title }} </a>
                </div>
                <div class="card-body">
-                  <h5 class="card-title"> Gold Cup</h5>
-                  <p class="card-text" style="font-size:1rem;">A knockout tournament or elimination tournament is
-                     divided
-                     into successive rounds; each competitor plays in at least one fixture per
-                     round. The top-ranked competitors in each fixture progress to the next
-                     round. As rounds progress, the number of competitors and fixtures decreases.
-                     The final round, usually known as the final or cup final, consists of just
-                     one fixture; the winner of which is the overall champion.
-
-                     In a single-elimination tournament, only the top-ranked competitors in a
-                     fixture progress; in 2-competitor games, only the winner progresses. All
-                     other competitors are eliminated. This ensures a winner is decided with the
-                     minimum number of fixtures. However, most competitors will be eliminated
-                     after relatively few matches; a single bad or unlucky performance can
-                     nullify many preceding excellent ones.
-
-                     A double-elimination tournament may be used in 2-competitor games to allow
-                     each competitor a single loss without being eliminated from the tournament.
-                     All losers from the main bracket enter a losers’ bracket, the winner of
-                     which plays off against the main bracket’s winner.</p>
-                  <p> December 1, 2018 by
-                     <a href="#"> <small> amadernews24 </small></a>
+                  <h5 class="card-title">{{ notc.heading }}  </h5>
+                  <p class="card-text" style="font-size:1rem;">
+                     {{ notc.Notice_decription }}    
+                  </p>
+                  <p> {{ notc.notice_date }} 
+                     <a href="#">  @<small> amadernews24 </small></a>
                   </p>
                </div>
             </div>
-            <br>
-            <div class="card">
-               <div class="card-header" style="color: red;">
-                  <a href=""> Soccer Tournament Timetable </a>
-               </div>
-               <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text" style="font-size:1rem;">A knockout tournament or elimination tournament is
-                     divided
-                     into successive rounds; each competitor plays in at least one fixture per
-                     round. The top-ranked competitors in each fixture progress to the next
-                     round. As rounds progress, the number of competitors and fixtures decreases.
-                     The final round, usually known as the final or cup final, consists of just
-                     one fixture; the winner of which is the overall champion.
-
-                     In a single-elimination tournament, only the top-ranked competitors in a
-                     fixture progress; in 2-competitor games, only the winner progresses. All
-                     other competitors are eliminated. This ensures a winner is decided with the
-                     minimum number of fixtures. However, most competitors will be eliminated
-                     after relatively few matches; a single bad or unlucky performance can
-                     nullify many preceding excellent ones.
-
-                     A double-elimination tournament may be used in 2-competitor games to allow
-                     each competitor a single loss without being eliminated from the tournament.
-                     All losers from the main bracket enter a losers’ bracket, the winner of
-                     which plays off against the main bracket’s winner.</p>
-                  <p> December 1, 2018 by
-                     <a href="#"> <small> amadernews24 </small></a>
-                  </p>
-               </div>
-            </div>
-
-            <br>
-            <div class="card">
-               <div class="card-header" style="color: red;">
-                  <a href=""> Soccer Tournament Timetable </a>
-               </div>
-               <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text" style="font-size:1rem;">A knockout tournament or elimination tournament is
-                     divided
-                     into successive rounds; each competitor plays in at least one fixture per
-                     round. The top-ranked competitors in each fixture progress to the next
-                     round. As rounds progress, the number of competitors and fixtures decreases.
-                     The final round, usually known as the final or cup final, consists of just
-                     one fixture; the winner of which is the overall champion.
-
-                     In a single-elimination tournament, only the top-ranked competitors in a
-                     fixture progress; in 2-competitor games, only the winner progresses. All
-                     other competitors are eliminated. This ensures a winner is decided with the
-                     minimum number of fixtures. However, most competitors will be eliminated
-                     after relatively few matches; a single bad or unlucky performance can
-                     nullify many preceding excellent ones.
-
-                     A double-elimination tournament may be used in 2-competitor games to allow
-                     each competitor a single loss without being eliminated from the tournament.
-                     All losers from the main bracket enter a losers’ bracket, the winner of
-                     which plays off against the main bracket’s winner.</p>
-                  <p> December 1, 2018 by
-                     <a href="#"> <small> amadernews24 </small></a>
-                  </p>
-               </div>
-            </div>
+         
             <br>
          </div>
-
+         {% endfor %}
       </div>
 
       <br>
       <br>
-
-
       <!-- Footer Section  -->
       <footer class="site-footer">
          <div class="container">

@@ -43,7 +43,7 @@
                         <a class="button" href="{% url 'news' %}">NEWS</a>
                         <a class="button" href="{% url 'notice' %}">NOTICES</a>
                         <a class="button" href="#">EVENTS</a>
-                        <a class="button" href="">GAlLARES</a>
+                        <a class="button" href="">GALLERY</a>
                         <a class="button" href="{% url 'mayor_and_councilor' %}">MAYOR AND COUNCILOR</a>
                         <a class="button" href="{% url 'complain' %}"> COMPLAIN BOX </a>
                         <a class="button" href="{% url 'compalin_list_chart_view' %}"> VIEW COMPLAIN </a>
@@ -117,7 +117,7 @@
                     <h2 class="main_title pt-3"> <b>Events </b><br>
                 </div>
                 <br>
-
+               {% for evnt in evnet  %}
                 <div class="row">
                     <div class="col-md-6">
 
@@ -125,55 +125,17 @@
                             <img src="{% static 'images/shutterstock_61104537504_8ef67d97-5056-a36a-0b9f5fc892eae781.jpg' %}"
                                 class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Kids Sprots play</h5>
-                                <p class="card-text" id="event_date">March 21, 2020</p>
-                                <p class=" " id="event_time"> 3:00 pm - 11:30 pm</p>
-                                <p class="" id="location">Sodor Stadium</p>
+                                <h5 class="card-title">{{ evnt.Events_title }}</h5>
+                                <p class="card-text" id="event_date">{{ evnt.e_date }}</p>
+                                <p class="card-text" id="event_date">{{ evnt.e_time }}</p>
+                                <p class="" id="location"> {{ evnt.Ecent_location }}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="card">
-                            <img src="{% static 'images/shutterstock_61104537504_8ef67d97-5056-a36a-0b9f5fc892eae781.jpg' %}"
-                                class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Kids Sprots play</h5>
-                                <p class="card-text" id="event_date">March 21, 2020</p>
-                                <p class=" " id="event_time"> 3:00 pm - 11:30 pm</p>
-                                <p class="" id="location">Sodor Stadium</p>
-                            </div>
-                        </div>
-                    </div>
+                   
                 </div>
                 <br>
-                <div class="row">
-                    <div class="col-md-6">
-
-                        <div class="card">
-                            <img src="{% static 'images/shutterstock_61104537504_8ef67d97-5056-a36a-0b9f5fc892eae781.jpg' %}"
-                                class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Kids Sprots play</h5>
-                                <p class="card-text" id="event_date">March 21, 2020</p>
-                                <p class=" " id="event_time"> 3:00 pm - 11:30 pm</p>
-                                <p class="" id="location">Sodor Stadium</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="card">
-                            <img src="{% static 'images/shutterstock_61104537504_8ef67d97-5056-a36a-0b9f5fc892eae781.jpg' %}"
-                                class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Kids Sprots play</h5>
-                                <p class="card-text" id="event_date">March 21, 2020</p>
-                                <p class=" " id="event_time"> 3:00 pm - 11:30 pm</p>
-                                <p class="" id="location">Sodor Stadium</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              {% endfor %}
             </div>
             <div class="col-md-3 col-lg-3">
                 <div class="bg-light">
