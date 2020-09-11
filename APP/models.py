@@ -16,19 +16,18 @@ class Notice(models.Model):
 
 
 class Mayor_and_councilor(models.Model):
-    mayor_or_councilor_image =models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
-    mayor_or_councilor_name = models.CharField(max_length=150,default='') 
-    deginaion = models.CharField(max_length=100,default='') 
-    email = models.CharField(max_length=150,default='') 
+    mayor_or_councilor_image = models.ImageField(upload_to='images')
+    mayor_or_councilor_name = models.CharField(max_length=150 ,default='') 
+    deginaion = models.CharField(max_length=100 ,default='') 
+    email = models.CharField(max_length=150 ,default='') 
     about = models.CharField(max_length=250,default='')
-
     def __str__(self):
         return self.mayor_or_councilor_name
 
 
 
 class News(models.Model):
-    # news_images = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    # news_images =models.ImageField(upload_to='images')
     news_title = models.CharField(max_length=150, default='') 
     news_details = models.CharField(max_length=1024*3 , default='')
     news_date = models.DateTimeField(auto_now_add=True )
@@ -48,7 +47,7 @@ class Contract(models.Model):
 
 class Evnets(models.Model):
     
-    Events_images = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    Events_images = models.ImageField(upload_to='images')
     Events_title = models.CharField(max_length=150,default='')
     e_time = models.CharField(max_length=150,default='')
     e_date = models.CharField(max_length=150,default='')

@@ -63,9 +63,9 @@ def contact(request):
     context = {
         "cont":cont
     }
-    return render(request,'contact.html',context)
+    return render(request,'contact.html' ,context)
 
 
 
 def compalin_list_chart_view(request):
-    return render(request,'compalin_list_chart_view.html')
+    return render(request ,'compalin_list_chart_view.html')
