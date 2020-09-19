@@ -5,9 +5,47 @@ from django.contrib.auth.models import User,auth
 from .models import Notice,News,Evnets,Mayor_and_councilor,Contract
 
 from django.http import HttpResponse
+
+
+import requests
+from bs4 import BeautifulSoup
+
 # Create your views here.
+
+
+
+page = requests.get('https://www.bbc.com/weather/1185241')
+soup = BeautifulSoup(page.content, 'html5lib')
+# today
+hedings  = soup.find_all("div",{"class": "wr-day__title"})
+weather_type = soup.find_all("div",{"class": "wr-day__weather-type-description" })
+weather_temperature = soup.find_all("span",{"class": "wr-value--temperature--c" })
+
+
+
+hedings = hedings[0:-13]
+weather_type = weather_type[0:-13]
+weather_temperature = weather_temperature[ 0: 1]
+
+toi_news = []
+wdetails =[]
+we_temp = []
+
+for th in hedings:
+    toi_news.append(th.text)
+
+for wd in weather_type:
+    wdetails.append(wd.text)
+
+for wt in weather_temperature:
+    we_temp.append(wt.text)
+
+
+# The Next Day 
+
+
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'home.html' ,{'toi_news':toi_news,'wdetails':wdetails,'we_temp':we_temp,})
 
 
 def complain(request):
@@ -69,3 +107,7 @@ def contact(request):
 
 def compalin_list_chart_view(request):
     return render(request ,'compalin_list_chart_view.html')
+
+
+
+# Weather section start 

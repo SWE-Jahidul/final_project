@@ -119,7 +119,7 @@
                     {% for mayor in mayor_con %}
                     <div class="col-md-4">
                         <div class="card">
-                            <img src="{% static 'images/men.jpg'  %}" class="card-img-top" alt="...">
+                            <img src="{{ mayor.mayor_or_councilor_image.url  }}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">{{ mayor.mayor_or_councilor_name }} </h5>
                                 <p class="card-text" id="event_date"> {{ mayor.deginaion }} </p>

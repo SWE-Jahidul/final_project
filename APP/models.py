@@ -27,7 +27,7 @@ class Mayor_and_councilor(models.Model):
 
 
 class News(models.Model):
-    # news_images =models.ImageField(upload_to='images')
+    news_images =models.ImageField(upload_to='images')
     news_title = models.CharField(max_length=150, default='') 
     news_details = models.CharField(max_length=1024*3 , default='')
     news_date = models.DateTimeField(auto_now_add=True )

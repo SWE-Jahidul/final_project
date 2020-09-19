@@ -8,7 +8,7 @@
     <!-- menu Section start  -->
     <div class="col-sm-12 languageselector ">
         <nav class=" navbar-fixed-top  navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand logo_title" href="#">BHANDARIA MUNICIPALITY </a>
+            <a class="navbar-brand logo_title" href="#"> Digital City </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -69,8 +69,8 @@
                         <a class="button" href="">GALLERY</a>
                         <a class="button" href="{% url 'mayor_and_councilor' %}">MAYOR AND COUNCILOR</a>
                         <a class="button" href="{% url 'complain' %}"> COMPLAIN BOX </a>
-                        <a class="button" href="{% url 'compalin_list_chart_view' %}"> VIEW COMPLAIN  </a>
-                      
+                        <a class="button" href="{% url 'compalin_list_chart_view' %}"> VIEW COMPLAIN </a>
+
                         <a class="button" href="{% url 'contact' %}"> CONTACT </a>
                     </div>
                 </div>
@@ -82,41 +82,17 @@
                             data-stellar-background-ratio="0.5">
                         <div class="centered weather_details">
 
-                            <h5 class="weather_header text-white text-center"> WEATHER INFO </h5>
+                            <div class="text-light">
+                                <h1 style="margin-top: -50px;">Tempareure </h1>
+                                {% for n in toi_news %}
 
-                            <div style="overflow: hidden;">
-                                <p class="text-white" style="float: left;">Local Time</p>
-                                <p class="text-white" style="float: right;">3:08 pm </p>
+                                <h3> {{ n }}</h3>
+                                {% endfor %}
+                                <h5> {{ wdetails }}</h5>
+                                <h3>{{ we_temp }}</h3>
                             </div>
-                            <div style="overflow: hidden;">
-                                <p class="text-white" style="float: left;">Today
-                                    <small>
-                                        January 29, 2020
-                                    </small> </p>
-                                <p class="text-white" style="float: right;">2c</p>
-                            </div>
-
-                            <div style="overflow: hidden;">
-                                <p class="text-white" style="float: left;">Today
-                                    <small>
-                                        January 29, 2020
-                                    </small> </p>
-                                <p class="text-white" style="float: right;">2c</p>
-                            </div>
-
-                            <div style="overflow: hidden;">
-                                <p class="text-white" style="float: left;">Today
-                                    <small>
-                                        January 29, 2020
-                                    </small> </p>
-                                <p class="text-white" style="float: right;">2c</p>
-                            </div>
-
-
-                            <p class="weather_detail_link text-white"> weather data by <a
-                                    href="www.weather.com">weather.com</a>
-                            </p>
-
+                      
+                        
                         </div>
                     </div>
                 </div>
@@ -294,8 +270,8 @@
                         <img class="card-img-top" src="{% static 'images/1-whytheweathe.jpg' %}" style="width:100%"
                             alt="Card image cap">
                         <div class="card-body">
-                        <p> About Images </p>
-                        <p> <a href="#"> More </a></p>
+                            <p> About Images </p>
+                            <p> <a href="#"> More </a></p>
                         </div>
                     </div>
                 </div>
