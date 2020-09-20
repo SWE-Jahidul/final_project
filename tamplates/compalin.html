@@ -12,30 +12,31 @@
             <span class="">Complain Box</span>
         </div>
 
-        <form class="contact100-form validate-form">
-            <div class="wrap-input100 validate-input">
-                <input id="name" class="input100" type="text" name="name" placeholder="Full name">
+        <form class="contact100-form validate-form" class="contact-form" method="post" action="/add_complain_submission/">
+          {% csrf_token %} 
 
+            <div class="wrap-input100 validate-input">
+                <input id="name" name = "complainer_name"class="input100" type="text" name="name" placeholder="Full name">
             </div>
 
 
             <div class="wrap-input100 validate-input">
-                <input id="email" class="input100" type="text" name="email" placeholder="Eg. example@email.com">
+                <input id="email" name="complainer_email" class="input100" type="text" name="email" placeholder="Eg. example@email.com">
 
             </div>
 
             <div class="wrap-input100 validate-input">
-                <input id="name" class="input100" type="text" name="name" placeholder="Location ">
+                <input id="name"  name="compain_location" class="input100" type="text" name="name" placeholder="Location ">
 
             </div>
 
             <div class="wrap-input100 validate-input">
-                <input id="phone" class="input100" type="text" name="phone" placeholder="Subject">
+                <input id="phone" name="complain_subject" class="input100" type="text" name="phone" placeholder="Subject">
             </div>
 
 
             <div class="wrap-input100 validate-input">
-                <textarea id="message" class="input100" name="message" placeholder="Problem Details"></textarea>
+                <textarea id="message" name="problem_details" class="input100" name="message" placeholder="Problem Details"></textarea>
             </div>
 
             <div class="container-contact100-form-btn">

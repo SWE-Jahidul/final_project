@@ -13,7 +13,9 @@ urlpatterns = [
     path('gallary/', views.gallary , name = 'gallary'),
     path('contact/',views.contact , name ='contact'),
     path('compalin_list_chart_view/',views.compalin_list_chart_view , name ='compalin_list_chart_view'),
-
+    path('add_complain_submission/',views.add_complain_submission, name='add_complain_submission'),
+ 
+ 
 
 ]
 

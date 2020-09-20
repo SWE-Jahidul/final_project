@@ -1,12 +1,9 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User,auth
 
-
-from .models import Notice,News,Evnets,Mayor_and_councilor,Contract
-
+from .models import Notice,News,Evnets,Mayor_and_councilor,Contract,Complain_details
 from django.http import HttpResponse
-
-
+from .models import Complain_details
 import requests
 from bs4 import BeautifulSoup
 
@@ -52,6 +49,17 @@ def complain(request):
     return render(request,'compalin.html')
 
 
+def add_complain_submission(request):
+    complainer_name = request.POST['complainer_name']
+    complainer_email = request.POST['complainer_email']
+    compain_location = request.POST['compain_location']
+    complain_subject = request.POST['complain_subject']
+    problem_details = request.POST['problem_details']
+
+
+    compain_details = Complain_details(complainer_name=complainer_name,complainer_email=complainer_email,compain_location=compain_location,complain_subject=complain_subject,problem_details=problem_details)
+    compain_details.save()
+    return render(request,'compalin.html')
 
 def mayor_and_councilor(request):
     

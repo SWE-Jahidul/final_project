@@ -58,3 +58,12 @@ class Evnets(models.Model):
         return self.Events_title
 
 
+class Complain_details(models.Model):
+    complainer_name = models.CharField(max_length=50,default='')
+    complainer_email = models.CharField(max_length=30,default='')
+    compain_location = models.CharField(max_length=100,default='')
+    complain_subject = models.CharField(max_length=100,default='')
+    problem_details = models.CharField(max_length=250,default='')
+
+    def __str__(self):
+        return self.complainer_name
