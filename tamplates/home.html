@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block content %}
+
 <div class=" site-blocks-cover overlay responsive">
     <img src="{% static 'images/Skyscrapers_of_Shinjuku_2009_January_(revised).jpg' %} " class="img-fluid main_img"
         alt="Responsive image " style="width: 100%;" data-aos="fade" data-stellar-background-ratio="0.5">
@@ -84,10 +85,12 @@
 
                             <div class="text-light">
                                 <h1 style="margin-top: -50px;">Tempareure </h1>
+                            
                                 {% for n in toi_news %}
 
                                 <h3> {{ n }}</h3>
                                 {% endfor %}
+                                <br>
                                 <h5> {{ wdetails }}</h5>
                                 <h3>{{ we_temp }}</h3>
                             </div>
@@ -101,18 +104,18 @@
                 <br>
                 <div class="card">
                     <div class="container pt-3">
-                        <h6>FEATURED GALLERY
-                        </h6>
-                        <br>
-                        <img class="card-img-top" src="{% static 'images/1-whytheweathe.jpg' %} " style="width:100%"
-                            alt="Card image cap">
-                        <div class="card-body">
-                            <p class="galary_title"><a href="#">Streets of Bhandaria</a>
-                                <br> <small>November 17, 2018
-                                </small>
-                            </p>
-                            <p> <a href="#"> More </a></p>
-                        </div>
+                        <div id='map' style='width: 400px; height: 300px;'></div>
+                        <script>
+                          mapboxgl.accessToken = '{{ mapbox_access_token }}';
+                          var map = new mapboxgl.Map({
+                            container: 'map',
+                            style: 'mapbox://styles/jahidul7/ckfdui9vd07i819pfgjpenlnp',
+                             // starting position
+                          
+                          
+                          });
+                        </script>
+                        
                     </div>
                 </div>
 
