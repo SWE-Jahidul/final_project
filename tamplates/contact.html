@@ -9,17 +9,35 @@
 
     <div class="col-sm-12 languageselector container-fluid">
         <nav class=" navbar-fixed-top  navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand logo_title" href="#">BHANDARIA MUNICIPALITY </a>
+            <a class="navbar-brand logo_title" href="{% url 'home' %}"> Digital City </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
+                    {% if user.is_authenticated  %}
+                    <li>
+                        <!-- <a>  Hello, {{ user.username }} </a> -->
+                    </li>
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="accounts/logout"> LogOut </a>
+                    </li>
+
+                    {% else %}
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Log In </a>
+
+                        <a class="nav-link" href="accounts/register"> Register </a>
                     </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="accounts/login">Log In </a>
+                    </li>
+
+                    {% endif %}
                     <li class="nav-item dropdown mr-5">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -28,9 +46,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#">Bangla</a>
                             <a class="dropdown-item" href="#">English</a>
-
                     </li>
-
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -51,7 +67,9 @@
                         <a class="button" href="{% url 'events' %}">EVENTS</a>
                         <a class="button" href="">GALLERY</a>
                         <a class="button" href="{% url 'mayor_and_councilor' %}">MAYOR AND COUNCILOR</a>
+                        {% if user.is_authenticated  %}
                         <a class="button" href="{% url 'complain' %}"> COMPLAIN BOX </a>
+                        {% endif %}
                         <a class="button" href="{% url 'compalin_list_chart_view' %}"> VIEW COMPLAIN </a>
                         <a class="button" href="#"> CONTACT </a>
                     </div>
@@ -62,46 +80,19 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class=" bg-light ">
-                                <img src="{% static 'images/download.jpeg' %}" style="width:100%;height:400px;"
+                                <img src="{% static 'images/download.jpeg'   %}" style="width:100%;height:400px;"
                                     class="img-fluid" alt="Responsive image" data-aos="fade"
                                     data-stellar-background-ratio="0.5">
                                 <div class="centered weather_details">
-
-                                    <h5 class="weather_header text-white text-center"> WEATHER INFO </h5>
-
-                                    <div style="overflow: hidden;">
-                                        <p class="text-white" style="float: left;">Local Time</p>
-                                        <p class="text-white" style="float: right;">3:08 pm </p>
+                                    <div class="text-light">
+                                        <h1 style="margin-top: -50px;">Tempareure </h1>
+                                        {% for n in toi_news %}
+                                        <h3> {{ n }}</h3>
+                                        {% endfor %}
+                                        <br>
+                                        <h5> {{ wdetails }}</h5>
+                                        <h3>{{ we_temp }}</h3>
                                     </div>
-                                    <div style="overflow: hidden;">
-                                        <p class="text-white" style="float: left;">Today
-                                            <small>
-                                                January 29, 2020
-                                            </small> </p>
-                                        <p class="text-white" style="float: right;">2c</p>
-                                    </div>
-
-                                    <div style="overflow: hidden;">
-                                        <p class="text-white" style="float: left;">Today
-                                            <small>
-                                                January 29, 2020
-                                            </small> </p>
-                                        <p class="text-white" style="float: right;">2c</p>
-                                    </div>
-
-                                    <div style="overflow: hidden;">
-                                        <p class="text-white" style="float: left;">Today
-                                            <small>
-                                                January 29, 2020
-                                            </small> </p>
-                                        <p class="text-white" style="float: right;">2c</p>
-                                    </div>
-
-
-                                    <p class="weather_detail_link text-white"> weather data by <a
-                                            href="www.weather.com">weather.com</a>
-                                    </p>
-
                                 </div>
                             </div>
                         </div>
@@ -110,24 +101,21 @@
                 <br>
                 <br>
                 <br>
-                <!-- Start Fetured gallary -->
+                <!-- Start map section -->
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
                             <div class="container pt-3">
-                                <h6>FEATURED GALLERY
-                                </h6>
-                                <br>
-                                <img class="card-img-top" src="{% static 'images/1-whytheweathe.jpg' %}"
-                                    style="width:100%" alt="Card image cap">
-                                <div class="card-body">
-                                    <p class="galary_title"><a href="#">Streets of Bhandaria</a>
-                                        <br> <small>November 17, 2018
+                                <div id='map' style='width: 400px; height: 300px;'></div>
+                                <script>
+                                    mapboxgl.accessToken = '{{ mapbox_access_token }}';
+                                    var map = new mapboxgl.Map({
+                                        container: 'map',
+                                        style: 'mapbox://styles/jahidul7/ckfdui9vd07i819pfgjpenlnp',
+                                        // starting position
 
-                                        </small></p>
-
-                                    <p> <a href="#"> More </a></p>
-                                </div>
+                                    });
+                                </script>
                             </div>
                         </div>
 
@@ -137,7 +125,7 @@
                 <!--End Fetured gallary -->
 
             </div>
-           
+
             <div class="col-md-5 container-fluid">
                 <div class="half_black text-white ">
                     <h2 class="main_title"> <b class="pt-3">Contact </b><br>
@@ -158,7 +146,7 @@
                 </div>
             </div>
 
-        
+
             <div class="col-md-3 notices_div">
                 <div class="bg-light">
                     <div class="container">

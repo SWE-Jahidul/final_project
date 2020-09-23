@@ -64,28 +64,41 @@ def add_complain_submission(request):
     return render(request,'compalin.html')
 
 def mayor_and_councilor(request):
-    
+    mapbox_access_token = 'pk.eyJ1IjoiamFoaWR1bDciLCJhIjoiY2tmZHAxODAzMDY1cjJ6cDV6a3o2N25qcSJ9.mcQR9Z0kZ2AqEYm3Q_9sVg'
     mayor_con = Mayor_and_councilor.objects.all()
     context = {
-        "mayor_con":mayor_con
+        "mayor_con":mayor_con,
+         'toi_news':toi_news,
+        'wdetails':wdetails,
+        'we_temp':we_temp,
+        'mapbox_access_token' : mapbox_access_token,
     }
 
     return render(request, 'mayor_and_councilor.html',context)
 
 
 def notice(request):
-
+    mapbox_access_token = 'pk.eyJ1IjoiamFoaWR1bDciLCJhIjoiY2tmZHAxODAzMDY1cjJ6cDV6a3o2N25qcSJ9.mcQR9Z0kZ2AqEYm3Q_9sVg'
     notice = Notice.objects.all()
     context = {
-        "notice":notice
+        "notice":notice,
+        'toi_news':toi_news,
+        'wdetails':wdetails,
+        'we_temp':we_temp,
+        'mapbox_access_token' : mapbox_access_token,
     }
     return render(request, 'notices.html',context)
 
 
 def news(request):
     news_w = News.objects.all()
+    mapbox_access_token = 'pk.eyJ1IjoiamFoaWR1bDciLCJhIjoiY2tmZHAxODAzMDY1cjJ6cDV6a3o2N25qcSJ9.mcQR9Z0kZ2AqEYm3Q_9sVg'
     context = {
-        "news_w":news_w
+        "news_w":news_w,
+        'toi_news':toi_news,
+        'wdetails':wdetails,
+        'we_temp':we_temp,
+        'mapbox_access_token' : mapbox_access_token,
     }
     return render(request,'news.html',context)
 
@@ -94,11 +107,19 @@ def news(request):
 
 def events(request):
     evnet = Evnets.objects.all()
-    context = {
-        "evnet":evnet
-    }
+    mapbox_access_token = 'pk.eyJ1IjoiamFoaWR1bDciLCJhIjoiY2tmZHAxODAzMDY1cjJ6cDV6a3o2N25qcSJ9.mcQR9Z0kZ2AqEYm3Q_9sVg'
 
-    return render(request,'events.html',context)
+    context = {
+        "evnet":evnet,
+        'toi_news':toi_news,
+        'wdetails':wdetails,
+        'we_temp':we_temp,
+        'mapbox_access_token' : mapbox_access_token,
+    }
+    
+    return render(request, 'events.html',context) 
+    
+
 
 
 def gallary(request):
@@ -108,8 +129,13 @@ def gallary(request):
 
 def contact(request):
     cont = Contract.objects.all()
+    mapbox_access_token = 'pk.eyJ1IjoiamFoaWR1bDciLCJhIjoiY2tmZHAxODAzMDY1cjJ6cDV6a3o2N25qcSJ9.mcQR9Z0kZ2AqEYm3Q_9sVg'
     context = {
-        "cont":cont
+        "cont":cont,
+        'toi_news':toi_news,
+        'wdetails':wdetails,
+        'we_temp':we_temp,
+        'mapbox_access_token' : mapbox_access_token,
     }
     return render(request,'contact.html' ,context)
 

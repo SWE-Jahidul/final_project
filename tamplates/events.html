@@ -7,15 +7,36 @@
         alt="Responsive image " style="width: 100%;" data-aos="fade" data-stellar-background-ratio="0.5">
     <!-- menu Section start  -->
     <div class="col-sm-12 languageselector ">
-        <nav class=" navbar-fixed-top  navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand logo_title" href="#">BHANDARIA MUNICIPALITY </a>
+          <nav class=" navbar-fixed-top  navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand logo_title" href="{% url 'home' %}"> Digital City </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
-                   
+                    {% if user.is_authenticated  %}
+                    <li>
+                        <!-- <a>  Hello, {{ user.username }} </a> -->
+                    </li>
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="accounts/logout"> LogOut </a>
+                    </li>
+
+                    {% else %}
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="accounts/register"> Register </a>
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="accounts/login">Log In </a>
+                    </li>
+
+                    {% endif %}
                     <li class="nav-item dropdown mr-5">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -45,70 +66,48 @@
                         <a class="button" href="#">EVENTS</a>
                         <a class="button" href="">GALLERY</a>
                         <a class="button" href="{% url 'mayor_and_councilor' %}">MAYOR AND COUNCILOR</a>
+                        {% if user.is_authenticated  %}
                         <a class="button" href="{% url 'complain' %}"> COMPLAIN BOX </a>
+                        {% endif %}
                         <a class="button" href="{% url 'compalin_list_chart_view' %}"> VIEW COMPLAIN </a>
-                        <a class="button" href="{ % url 'contact'% }"> CONTACT </a>
+                        <a class="button" href="{% url 'contact' %}"> CONTACT </a>
                     </div>
                 </div>
                 <br>
                 <div class="card">
                     <div class=" bg-light ">
-                        <img src="{% static 'images/download.jpeg' %}" style="width:100%;height:400px;" class="img-fluid"
-                            alt="Responsive image" data-aos="fade" data-stellar-background-ratio="0.5">
-                        <div class="centered weather_details">
-
-                            <h5 class="weather_header text-white text-center"> WEATHER INFO </h5>
-
-                            <div style="overflow: hidden;">
-                                <p class="text-white" style="float: left;">Local Time</p>
-                                <p class="text-white" style="float: right;">3:08 pm </p>
-                            </div>
-                            <div style="overflow: hidden;">
-                                <p class="text-white" style="float: left;">Today
-                                    <small>
-                                        January 29, 2020
-                                    </small> </p>
-                                <p class="text-white" style="float: right;">2c</p>
-                            </div>
-
-                            <div style="overflow: hidden;">
-                                <p class="text-white" style="float: left;">Today
-                                    <small>
-                                        January 29, 2020
-                                    </small> </p>
-                                <p class="text-white" style="float: right;">2c</p>
-                            </div>
-
-                            <div style="overflow: hidden;">
-                                <p class="text-white" style="float: left;">Today
-                                    <small>
-                                        January 29, 2020
-                                    </small> </p>
-                                <p class="text-white" style="float: right;">2c</p>
-                            </div>
-
-
-                            <p class="weather_detail_link text-white"> weather data by <a
-                                    href="www.weather.com">weather.com</a>
-                            </p>
+                        <img src="{% static 'images/download.jpeg'   %}" style="width:100%;height:400px;"
+                        class="img-fluid" alt="Responsive image" data-aos="fade"
+                        data-stellar-background-ratio="0.5">
+                    <div class="centered weather_details">
+                        <div class="text-light">
+                            <h1 style="margin-top: -50px;">Tempareure </h1>
+                            {% for n in toi_news %}
+                            <h3> {{ n }}</h3>
+                            {% endfor %}
+                            <br>
+                            <h5> {{ wdetails }}</h5>
+                            <h3>{{ we_temp }}</h3>
                         </div>
+                  
+                    
+                    </div>
                     </div>
                 </div>
                 <br>
                 <div class="card">
                     <div class="container pt-3">
-                        <h6>FEATURED GALLERY
-                        </h6>
-                        <br>
-                        <img class="card-img-top" src="{% static 'images/1-whytheweathe.jpg' %}" style="width:100%"
-                            alt="Card image cap">
-                        <div class="card-body">
-                            <p class="galary_title"><a href="#">Streets of Bhandaria</a>
-                                <br> <small>November 17, 2018
-                                </small>
-                            </p>
-                            <p> <a href="#"> More </a></p>
-                        </div>
+                        <div id='map' style='width: 400px; height: 300px;'></div>
+                        <script>
+                          mapboxgl.accessToken = '{{ mapbox_access_token }}';
+                          var map = new mapboxgl.Map({
+                            container: 'map',
+                            style: 'mapbox://styles/jahidul7/ckfdui9vd07i819pfgjpenlnp',
+                             // starting position
+  
+                          });
+                        </script>
+                        
                     </div>
                 </div>
             </div>
@@ -117,8 +116,9 @@
                     <h2 class="main_title pt-3"> <b>Events </b><br>
                 </div>
                 <br>
-               {% for evnt in evnet  %}
+              
                 <div class="row">
+                    {% for evnt in evnet  %}
                     <div class="col-md-6">
 
                         <div class="card">
@@ -132,10 +132,10 @@
                             </div>
                         </div>
                     </div>
-                   
+                    {% endfor %}
                 </div>
                 <br>
-              {% endfor %}
+             
             </div>
             <div class="col-md-3 col-lg-3">
                 <div class="bg-light">
