@@ -18,13 +18,13 @@
             {% csrf_token %}
             <div class="form-group  text_filed input-container mt-5">
               <i class="fa fa-user icon"></i>
-              <input name="username" type="text" class="shadow form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+              <input name="username" type="text" class="shadow form-control" id="exampleInputEmail1" aria-describedby="emailHelp" Required="True" 
                 placeholder="Enter Your Name">
             </div>
             <div class="form-group text_filed input-container">
               <i class="fa fa-key icon"></i>
-              <input name="password" type="password" class="shadow form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                placeholder="Enter Your Password">
+              <input name="password" type="password" class="shadow form-control" id="exampleInputEmail1" aria-describedby="emailHelp" Required="True" 
+                placeholder="Enter Your Password"> 
             </div>
         <center>
           <input id='login_btn' type="submit" class="btn btn-outline-danger">

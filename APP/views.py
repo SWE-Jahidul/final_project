@@ -6,6 +6,10 @@ from django.http import HttpResponse
 from .models import Complain_details
 import requests
 from bs4 import BeautifulSoup
+#  paginator
+
+from django.core.paginator import Paginator,EmptyPage
+
 
 # Create your views here.
 
@@ -93,8 +97,15 @@ def notice(request):
 def news(request):
     news_w = News.objects.all()
     mapbox_access_token = 'pk.eyJ1IjoiamFoaWR1bDciLCJhIjoiY2tmZHAxODAzMDY1cjJ6cDV6a3o2N25qcSJ9.mcQR9Z0kZ2AqEYm3Q_9sVg'
+    p = Paginator(news_w,2) 
+    page_num = request.GET.get('page',1)
+    try:
+        page = p.page(page_num)
+    except EmptyPage:
+        page =p.page(1)
+   
     context = {
-        "news_w":news_w,
+        "news_w":page,
         'toi_news':toi_news,
         'wdetails':wdetails,
         'we_temp':we_temp,

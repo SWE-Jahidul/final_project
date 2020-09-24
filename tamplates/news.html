@@ -119,13 +119,13 @@
             </div>
  
             <div class="col-md-7">
-               {% for p in news_w %}
+               {% for pt in news_w %}
                 <div class="card mb-3">
                     <img src="{% static 'images/download.jpeg' %}"  style="height: 300px;" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">{{ p.news_title}} </h5>
-                        <p class="card-text">{{ p.news_details }}</p>
-                      <p class="card-text"><small class="text-muted">{{ p.news_date }}</small></p>
+                        <h5 class="card-title">{{ pt.news_title}} </h5>
+                        <p class="card-text">{{ pt.news_details }}</p>
+                      <p class="card-text"><small class="text-muted">{{ pt.news_date }}</small></p>
                     </div>
                   </div>
                 <br>
@@ -135,11 +135,12 @@
 <!-- Pagination  -->
                 <nav aria-label="Page navigation example">
                     <ul class="pagination">
-                      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                      <li class="page-item"><a class="page-link" href="#">1</a></li>
-                      <li class="page-item"><a class="page-link" href="#">2</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                        {% if news_w.has_previous %}
+                      <li class="page-item"><a class="page-link" href="{% url 'news' %}?page={{ news_w.previous_page_number }} ">Previous</a></li>
+                      {% endif %}
+                      {% if news_w.has_next %}
+                      <li class="page-item"><a class="page-link" href="{% url 'news' %}?page={{ news_w.next_page_number }} ">Next</a></li>
+                      {% endif %}
                     </ul>
                   </nav>
             </div>
