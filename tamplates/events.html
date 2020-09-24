@@ -7,7 +7,7 @@
         alt="Responsive image " style="width: 100%;" data-aos="fade" data-stellar-background-ratio="0.5">
     <!-- menu Section start  -->
     <div class="col-sm-12 languageselector ">
-          <nav class=" navbar-fixed-top  navbar navbar-expand-lg navbar-light bg-light">
+        <nav class=" navbar-fixed-top  navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand logo_title" href="{% url 'home' %}"> Digital City </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,21 +77,21 @@
                 <div class="card">
                     <div class=" bg-light ">
                         <img src="{% static 'images/download.jpeg'   %}" style="width:100%;height:400px;"
-                        class="img-fluid" alt="Responsive image" data-aos="fade"
-                        data-stellar-background-ratio="0.5">
-                    <div class="centered weather_details">
-                        <div class="text-light">
-                            <h1 style="margin-top: -50px;">Tempareure </h1>
-                            {% for n in toi_news %}
-                            <h3> {{ n }}</h3>
-                            {% endfor %}
-                            <br>
-                            <h5> {{ wdetails }}</h5>
-                            <h3>{{ we_temp }}</h3>
+                            class="img-fluid" alt="Responsive image" data-aos="fade"
+                            data-stellar-background-ratio="0.5">
+                        <div class="centered weather_details">
+                            <div class="text-light">
+                                <h1 style="margin-top: -50px;">Tempareure </h1>
+                                {% for n in toi_news %}
+                                <h3> {{ n }}</h3>
+                                {% endfor %}
+                                <br>
+                                <h5> {{ wdetails }}</h5>
+                                <h3>{{ we_temp }}</h3>
+                            </div>
+
+
                         </div>
-                  
-                    
-                    </div>
                     </div>
                 </div>
                 <br>
@@ -99,15 +99,15 @@
                     <div class="container pt-3">
                         <div id='map' style='width: 400px; height: 300px;'></div>
                         <script>
-                          mapboxgl.accessToken = '{{ mapbox_access_token }}';
-                          var map = new mapboxgl.Map({
-                            container: 'map',
-                            style: 'mapbox://styles/jahidul7/ckfdui9vd07i819pfgjpenlnp',
-                             // starting position
-  
-                          });
+                            mapboxgl.accessToken = '{{ mapbox_access_token }}';
+                            var map = new mapboxgl.Map({
+                                container: 'map',
+                                style: 'mapbox://styles/jahidul7/ckfdui9vd07i819pfgjpenlnp',
+                                // starting position
+
+                            });
                         </script>
-                        
+
                     </div>
                 </div>
             </div>
@@ -116,14 +116,13 @@
                     <h2 class="main_title pt-3"> <b>Events </b><br>
                 </div>
                 <br>
-              
+
                 <div class="row">
                     {% for evnt in evnet  %}
                     <div class="col-md-6">
 
                         <div class="card">
-                            <img src= "{{ evnt.Events_images.url }} "
-                                class="card-img-top" alt="...">
+                            <img src="{{ evnt.Events_images.url }} " class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">{{ evnt.Events_title }}</h5>
                                 <p class="card-text" id="event_date">{{ evnt.e_date }}</p>
@@ -131,11 +130,23 @@
                                 <p class="" id="location"> {{ evnt.Ecent_location }}</p>
                             </div>
                         </div>
+                        <br>
                     </div>
+
                     {% endfor %}
                 </div>
                 <br>
-             
+
+                <!-- <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                   {% if evnet.has_previous %}
+                  <li class="page-item"><a class="page-link" href="{% url 'evnets' %}?page={{ evnet.previous_page_number }} ">Previous</a></li>
+                  {% endif %}
+                  {% if evnet.has_next %}
+                  <li class="page-item"><a class="page-link" href="{% url 'evnets' %}?page={{ evnet.next_page_number }} ">Next</a></li>
+                  {% endif %}
+                </ul>
+              </nav> -->
             </div>
             <div class="col-md-3 col-lg-3">
                 <div class="bg-light">

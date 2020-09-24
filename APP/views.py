@@ -84,8 +84,14 @@ def mayor_and_councilor(request):
 def notice(request):
     mapbox_access_token = 'pk.eyJ1IjoiamFoaWR1bDciLCJhIjoiY2tmZHAxODAzMDY1cjJ6cDV6a3o2N25qcSJ9.mcQR9Z0kZ2AqEYm3Q_9sVg'
     notice = Notice.objects.all()
+    p = Paginator(notice,2) 
+    page_num = request.GET.get('page',1)
+    try:
+        page = p.page(page_num)
+    except EmptyPage:
+        page =p.page(1)
     context = {
-        "notice":notice,
+        "notice":page,
         'toi_news':toi_news,
         'wdetails':wdetails,
         'we_temp':we_temp,
@@ -95,7 +101,8 @@ def notice(request):
 
 
 def news(request):
-    news_w = News.objects.all()
+    news_w = News.objects.all().order_by("-id")
+
     mapbox_access_token = 'pk.eyJ1IjoiamFoaWR1bDciLCJhIjoiY2tmZHAxODAzMDY1cjJ6cDV6a3o2N25qcSJ9.mcQR9Z0kZ2AqEYm3Q_9sVg'
     p = Paginator(news_w,2) 
     page_num = request.GET.get('page',1)
@@ -103,7 +110,6 @@ def news(request):
         page = p.page(page_num)
     except EmptyPage:
         page =p.page(1)
-   
     context = {
         "news_w":page,
         'toi_news':toi_news,
@@ -117,9 +123,9 @@ def news(request):
 
 
 def events(request):
-    evnet = Evnets.objects.all()
+    evnet = Evnets.objects.all().order_by("-e_date")
     mapbox_access_token = 'pk.eyJ1IjoiamFoaWR1bDciLCJhIjoiY2tmZHAxODAzMDY1cjJ6cDV6a3o2N25qcSJ9.mcQR9Z0kZ2AqEYm3Q_9sVg'
-
+   
     context = {
         "evnet":evnet,
         'toi_news':toi_news,
