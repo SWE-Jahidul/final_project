@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.contrib.auth import get_user_model
 from django.http import JsonResponse
 from django.shortcuts import render,redirect
@@ -17,11 +18,18 @@ from django.contrib import messages
 # for chart 
 
 from django.views.generic import View
+# email 
+from django.conf import settings
 
+from django.core.mail import send_mail
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
 # Create your views here.
+
 
 
 
@@ -31,6 +39,8 @@ soup = BeautifulSoup(page.content, 'html5lib')
 hedings  = soup.find_all("div",{"class": "wr-day__title"})
 weather_type = soup.find_all("div",{"class": "wr-day__weather-type-description" })
 weather_temperature = soup.find_all("span",{"class": "wr-value--temperature--c" })
+
+
 
 
 
@@ -80,9 +90,19 @@ def add_complain_submission(request):
 def mayor_and_councilor(request):
     mapbox_access_token = 'pk.eyJ1IjoiamFoaWR1bDciLCJhIjoiY2tmZHAxODAzMDY1cjJ6cDV6a3o2N25qcSJ9.mcQR9Z0kZ2AqEYm3Q_9sVg'
     mayor_con = Mayor_and_councilor.objects.all()
+    mayor_title_query_or_degination = request.GET.get('title_contains2')
+    # cheack 
+   
+
+    if mayor_title_query_or_degination != '' and mayor_title_query_or_degination is not None:
+        mayor_con =mayor_con.filter(Q(mayor_or_councilor_name__icontains=mayor_title_query_or_degination)|
+        Q(deginaion__icontains=mayor_title_query_or_degination) ).distinct()
+    else: 
+        messages.info(request,"please search again")
+
     context = {
         "mayor_con":mayor_con,
-         'toi_news':toi_news,
+        'toi_news':toi_news,
         'wdetails':wdetails,
         'we_temp':we_temp,
         'mapbox_access_token' : mapbox_access_token,
@@ -108,6 +128,44 @@ def notice(request):
         'mapbox_access_token' : mapbox_access_token,
     }
     return render(request, 'notices.html',context)
+
+def sendanmail(request):
+    if request.method == "POST":
+        to= request.POST.get('toemail')
+        content = request.POST.get('content')
+        html_content = render_to_string("email_tamplate.html",{'title':'test email','content':content})
+        text_content =strip_tags(html_content)
+        # print(to,content)
+
+        email = EmailMultiAlternatives(
+            "testing",
+            text_content,
+
+            settings.EMAIL_HOST_USER,
+            [to]
+
+        )
+        email.attach_alternative(html_content,"text/html")
+        email.send()
+        # print(to,content)
+
+       
+        return render(
+            request,
+            'email.html',
+            {
+                'title': 'send an email'
+            }
+        )
+    else:  
+        return render(
+            request,
+            'email.html',
+            {
+                'title': 'send an email'
+            }
+   )
+
 
 
 def news(request):
@@ -144,6 +202,14 @@ def news(request):
 def events(request):
     evnet = Evnets.objects.all().order_by("-e_date")
     mapbox_access_token = 'pk.eyJ1IjoiamFoaWR1bDciLCJhIjoiY2tmZHAxODAzMDY1cjJ6cDV6a3o2N25qcSJ9.mcQR9Z0kZ2AqEYm3Q_9sVg'
+    event_title_query = request.GET.get('title_contains1')
+    # cheack 
+   
+
+    if event_title_query != '' and event_title_query is not None:
+        evnet =evnet.filter(Events_title__icontains = event_title_query )
+    else: 
+        messages.info(request,"please search again")
    
     context = {
         "evnet":evnet,
