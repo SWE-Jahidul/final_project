@@ -1,3 +1,5 @@
+from django.contrib.auth import get_user_model
+from django.http import JsonResponse
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User,auth
 
@@ -9,8 +11,16 @@ from bs4 import BeautifulSoup
 #  paginator
 
 from django.core.paginator import Paginator,EmptyPage
+from django.contrib import messages
 
 
+# for chart 
+
+from django.views.generic import View
+
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
 # Create your views here.
 
 
@@ -102,7 +112,16 @@ def notice(request):
 
 def news(request):
     news_w = News.objects.all().order_by("-id")
+    # search News 
+    news_title_query = request.GET.get('title_contains')
+    # cheack 
+   
 
+    if news_title_query != '' and news_title_query is not None:
+        news_w =news_w.filter(news_title__icontains = news_title_query )
+    else: 
+        messages.info(request,"please search again")
+        
     mapbox_access_token = 'pk.eyJ1IjoiamFoaWR1bDciLCJhIjoiY2tmZHAxODAzMDY1cjJ6cDV6a3o2N25qcSJ9.mcQR9Z0kZ2AqEYm3Q_9sVg'
     p = Paginator(news_w,2) 
     page_num = request.GET.get('page',1)
@@ -116,7 +135,7 @@ def news(request):
         'wdetails':wdetails,
         'we_temp':we_temp,
         'mapbox_access_token' : mapbox_access_token,
-    }
+    } 
     return render(request,'news.html',context)
 
 
@@ -158,9 +177,35 @@ def contact(request):
 
 
 
-def compalin_list_chart_view(request):
-    return render(request ,'compalin_list_chart_view.html')
+User = get_user_model()
+
+
+class compalin_list_chart_view(View):
+    def get(self, request, *args, **kwargs):
+        return render(request ,'compalin_list_chart_view.html',{"customers": 10})
 
 
 
-# Weather section start 
+def get_data(request,*args, **kwargs):
+    data ={
+        "sales":100,
+        "customers":10,
+        
+    }
+    
+    return JsonResponse(data)
+
+
+
+ 
+class ChartData(APIView):
+    authentication_classes = []
+    permission_classes = []
+
+    def get(self, request, format=None):
+        data ={
+                 "sales":100,
+                 "customers":10,
+                 "users": User.objects.all().count(),
+            }
+        return Response(data)

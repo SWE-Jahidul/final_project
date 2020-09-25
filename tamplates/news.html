@@ -48,7 +48,7 @@
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" name="title_contains" aria-label="Search" required='True'>
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </div>
@@ -119,6 +119,8 @@
             </div>
  
             <div class="col-md-7">
+                
+
                {% for pt in news_w %}
                 <div class="card mb-3">
                     <img src="{% static 'images/download.jpeg' %}"  style="height: 300px;" class="card-img-top" alt="...">
@@ -132,6 +134,13 @@
                 {% endfor %}
             
                 <br>
+                <div >
+                    {% for message in messages %}
+                   
+                    <h3>  {{ message }}</h3>
+          
+                    {% endfor %}
+                  </div>
 <!-- Pagination  -->
 
                 <nav aria-label="Page navigation example">
