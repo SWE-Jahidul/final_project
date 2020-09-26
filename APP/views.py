@@ -115,6 +115,15 @@ def mayor_and_councilor(request):
 def notice(request):
     mapbox_access_token = 'pk.eyJ1IjoiamFoaWR1bDciLCJhIjoiY2tmZHAxODAzMDY1cjJ6cDV6a3o2N25qcSJ9.mcQR9Z0kZ2AqEYm3Q_9sVg'
     notice = Notice.objects.all()
+    notice_title_query = request.GET.get('notice_contins')
+    # cheack 
+   
+
+    if notice_title_query != '' and notice_title_query is not None:
+        notice =notice.filter(heading__icontains = notice_title_query )
+    else: 
+        messages.info(request,"please search again")
+        
     p = Paginator(notice,2) 
     page_num = request.GET.get('page',1)
     try:
@@ -272,7 +281,7 @@ class ChartData(APIView):
     def get(self, request, format=None):
 
         qs_count = User.objects.all().count()
-        labels =['Users','Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange']
+        labels =['Users','Water', 'Traffic', 'Yellow', 'Green', 'Purple', 'Orange']
         default_items = [qs_count,1234,10,122,10,200,0]
         data ={
                  "labels":labels,
