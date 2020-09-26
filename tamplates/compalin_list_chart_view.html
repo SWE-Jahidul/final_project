@@ -1,48 +1,38 @@
-<!-- {%  extends "base.html" %}
+{% extends  'base.html' %} 
 
-
-<script  type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'> </script>
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"> </script>
-
-<div class="">
-<center>
-    <h1 class="pt-5"> Complain Chart  </h1>
-</center>
-
-</div>
-
-<div class="container">
-    <canvas id="myChart" ></canvas>
-</div>
-
+{% block scripts %}
 
 <script>
-    {% block jquery %}
     var endpoint = '/api/chart/data'
-
-    $ajax({
+    var defaultData =[]
+    var labels =[];
+    $.ajax({
         method:"GET",
         url: endpoint,
         success:function(data){
-            console.log(data.customars * 125)
+            labels =data.labels
+            defaultData=data.default
+            setChart()
+        
+
         },
-        error:function(error_data){
+        error: function(error_data){
             console.log("error")
             console.log(error_data)
         },
     
     })
-    
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'bar',
+
+
+    function setChart(){
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
     data: {
-        labels: ['Water', 'Traffic', 'fire', 'cleaner', 'political', 'Others'],
+        labels: labels,
         datasets: [{
             label: '# of Problems',
-            data: [12, 19, 3, 5, 2, 3],
+            data: defaultData,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -70,12 +60,17 @@ var myChart = new Chart(ctx, {
                 }
             }]
         }
-    }
-});
+            }
+        })
 
-{% endblock %}  
+    }
+
 </script>
+{% endblock scripts %}
+
 
 {% block content %}
+<canvas id="myChart" width="400" height="200"></canvas>
 
-{% endblock %}  -->
+
+{% endblock content %}

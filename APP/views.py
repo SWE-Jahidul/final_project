@@ -18,6 +18,7 @@ from django.contrib import messages
 # for chart 
 
 from django.views.generic import View
+from django.views.generic import TemplateView
 # email 
 from django.conf import settings
 
@@ -269,9 +270,14 @@ class ChartData(APIView):
     permission_classes = []
 
     def get(self, request, format=None):
+
+        qs_count = User.objects.all().count()
+        labels =['Users','Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange']
+        default_items = [qs_count,1234,10,122,10,200,0]
         data ={
-                 "sales":100,
-                 "customers":10,
-                 "users": User.objects.all().count(),
+                 "labels":labels,
+                 "default":default_items,
+             
             }
         return Response(data)
+

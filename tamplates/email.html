@@ -1,40 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
- <form action=" {% url 'email' %}" method="post">
-    {% csrf_token %} 
-    <table>
-         <tr>
-             <td>
-             TO
-              </td>
-              <td>
-                  <input type="email" name="toemail">
-              </td>
-             
-         </tr>
-         <tr>
-             <td colspan="2">
-                 <textarea name="content" cols="30" rows="10"></textarea>
-             </td>
-         </tr>
+{%  extends "base.html" %}
+{% load static %}
 
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/login.css' %} ">
 
-         <tr>
-            <td>
-                <input type="submit" value="Send"
-            </td>
-            <td>
-                <input type="submit" value="clear">
-            </td>
-         </tr>
-     </table>
- </form> 
-</body>
-</html>
+<div class="row pt-5">
+  <div class="col-lg-3">
+  </div>
+  <div class="col-12 col-lg-6 col-sm-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="card-content p-3">
+          <div class="text-center">
+            <h3>SEND MAIL </h3>
+          </div>
+          <form action=" {% url 'email' %}" method="post""> 
+            {% csrf_token %}
+            <P> TO </P>
+            <div class="form-group  text_filed input-container mt-5">
+                
+              <input  type="email" name="toemail"  class="shadow form-control" id="exampleInputEmail1" aria-describedby="emailHelp" Required="True" 
+                placeholder="Enter Mail">
+            </div>
+            <div class="form-group">
+                <label for="comment">Message</label>
+                <textarea class="form-control"  name="content" rows="5" id="comment"></textarea>
+              </div>
+        <center>
+          <input id='login_btn' type="submit" value="Send"  class="btn btn-outline-danger">
+        </center>
+     
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-3">
+
+  </div>
+</div>
+
+{% endblock %}
 

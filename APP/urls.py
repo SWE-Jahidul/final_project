@@ -19,8 +19,7 @@ urlpatterns = [
     path('compalin_list_chart_view/',compalin_list_chart_view.as_view(), name ='compalin_list_chart_view'),
     path('api/chart/data/',ChartData.as_view()),
     path('api/data',get_data,name='api-data'),
-    path('send/',sendanmail,name='email'),
-    
+    path('sendmail/',sendanmail,name='email'),
     
 
 ]
