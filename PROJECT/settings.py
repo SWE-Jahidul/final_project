@@ -47,6 +47,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -107,8 +108,10 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
 
+
+LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'es'
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
@@ -116,6 +119,7 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
@@ -126,8 +130,13 @@ EMAIL_HOST_PASSWORD ="jahid1234#@!"
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 
+LOCALE_PATHS = ( os.path.join(BASE_DIR, 'locale'), )
 
 
+LANGUAGES = [
+    ('en','English'),
+    ('fi','Finnish'),
+]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
@@ -147,3 +156,6 @@ MEDIA_URL = '/media/'
 
 # Path where media is stored
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.i18n',
+)

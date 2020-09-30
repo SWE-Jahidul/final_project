@@ -49,7 +49,8 @@
                </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
-               <input class="form-control mr-sm-2" type="search" placeholder="Search" name="notice_contins" aria-label="Search">
+               <input class="form-control mr-sm-2" type="search" placeholder="Search" name="notice_contins"
+                  aria-label="Search">
                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
          </div>
@@ -72,6 +73,9 @@
                   <a class="button" href="{% url 'complain' %}"> COMPLAIN BOX </a>
                   {% endif %}
                   <a class="button" href="{% url 'compalin_list_chart_view' %}"> VIEW COMPLAIN </a>
+                  {% if request.user.is_superuser  %}
+                  <a class="button" href="{% url 'email' %}"> CONFORMATION MAIL FOR USER </a>
+                  {% endif %}
                   <a class="button" href="{% url 'contact' %}"> CONTACT </a>
                </div>
             </div>
@@ -82,22 +86,21 @@
             <div class="card">
                <div class=" bg-light ">
                   <div class=" bg-light ">
-                     <img src="{% static 'images/download.jpeg'   %}" style="width:100%;height:400px;"
-                         class="img-fluid" alt="Responsive image" data-aos="fade"
-                         data-stellar-background-ratio="0.5">
+                     <img src="{% static 'images/download.jpeg'   %}" style="width:100%;height:400px;" class="img-fluid"
+                        alt="Responsive image" data-aos="fade" data-stellar-background-ratio="0.5">
                      <div class="centered weather_details">
-                         <div class="text-light">
-                             <h1 style="margin-top: -50px;">Tempareure </h1>
-                             {% for n in toi_news %}
-                             <h3> {{ n }}</h3>
-                             {% endfor %}
-                             <br>
-                             <h5> {{ wdetails }}</h5>
-                             <h3>{{ we_temp }}</h3>
-                         </div>
+                        <div class="text-light">
+                           <h1 style="margin-top: -50px;">Tempareure </h1>
+                           {% for n in toi_news %}
+                           <h3> {{ n }}</h3>
+                           {% endfor %}
+                           <br>
+                           <h5> {{ wdetails }}</h5>
+                           <h3>{{ we_temp }}</h3>
+                        </div>
                      </div>
-                 </div>
-                  
+                  </div>
+
                </div>
             </div>
             <br>
@@ -107,13 +110,13 @@
                <div class="container pt-3">
                   <div id='map' style='width: 400px; height: 300px;'></div>
                   <script>
-                    mapboxgl.accessToken = '{{ mapbox_access_token }}';
-                    var map = new mapboxgl.Map({
-                      container: 'map',
-                      style: 'mapbox://styles/jahidul7/ckfdui9vd07i819pfgjpenlnp',
-                       // starting position
+                     mapboxgl.accessToken = '{{ mapbox_access_token }}';
+                     var map = new mapboxgl.Map({
+                        container: 'map',
+                        style: 'mapbox://styles/jahidul7/ckfdui9vd07i819pfgjpenlnp',
+                        // starting position
 
-                    });
+                     });
                   </script>
 
                </div>
@@ -121,7 +124,7 @@
 
             <br>
          </div>
-       
+
          <div class="col-md-7">
             {% for notc in notice %}
             <div class="card">
@@ -140,21 +143,23 @@
             </div>
             <br>
             {% endfor %}
-    
+
 
             <nav aria-label="Page navigation example">
                <ul class="pagination">
                   {% if notice.has_previous %}
-                 <li class="page-item"><a class="page-link" href="{% url 'notice' %}?page={{ notice.previous_page_number }} ">Previous</a></li>
-                 {% endif %}
-                 {% if notice.has_next %}
-                 <li class="page-item"><a class="page-link" href="{% url 'notice' %}?page={{ notice.next_page_number }} ">Next</a></li>
-                 {% endif %}
+                  <li class="page-item"><a class="page-link"
+                        href="{% url 'notice' %}?page={{ notice.previous_page_number }} ">Previous</a></li>
+                  {% endif %}
+                  {% if notice.has_next %}
+                  <li class="page-item"><a class="page-link"
+                        href="{% url 'notice' %}?page={{ notice.next_page_number }} ">Next</a></li>
+                  {% endif %}
                </ul>
-             </nav>
+            </nav>
          </div>
-       
-    
+
+
 
       </div>
 
@@ -165,24 +170,19 @@
             <div class="row">
                <div class="col-sm-12 col-md-6">
                   <h6>About</h6>
-                  <p class="text-justify">TownPress is a premium Municipality WordPress theme. It is best suited to be
-                     used as a presentation site for small to medium towns. You will find an extensive list of features
-                     to help create the website your town needs!</p>
+                  <p class="text-justify">: A smart city is a designation given to a city that incorporates information
+                     and communication technologies (ICT) to enhance the quality and performance of urban services such
+                     as energy, transportation and utilities in order to reduce resource consumption, wastage and
+                     overall costs.</p>
                </div>
                <div class="col-xs-6 col-md-3">
-                  <h6>Categories</h6>
-                  <ul class="footer-links">
-                     <li><a href="">UPCOMING EVENTS </a></li>
-                     <li><a href="">
-                           Kids Sports Day</a>
-                     </li>
-                  </ul>
+                
                </div>
                <div class="col-xs-6 col-md-3">
                   <h6>Quick Contract </h6>
                   <ul class="footer-links">
-                     <li><a href="http://scanfcode.com/about/">01794895700</a></li>
-                     <li><a href="http://scanfcode.com/contact/">programmerjahid162@gmail.com</a></li>
+                     <li><a href="">01794895700</a></li>
+                     <li><a href="">programmerjahid162@gmail.com</a></li>
                   </ul>
                </div>
             </div>

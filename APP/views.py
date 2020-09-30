@@ -31,6 +31,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 # Create your views here.
 
+from django.utils.translation import gettext as _
 
 
 
@@ -41,6 +42,7 @@ hedings  = soup.find_all("div",{"class": "wr-day__title"})
 weather_type = soup.find_all("div",{"class": "wr-day__weather-type-description" })
 weather_temperature = soup.find_all("span",{"class": "wr-value--temperature--c" })
 
+from django.utils.translation import gettext as _
 
 
 
@@ -68,8 +70,23 @@ for wt in weather_temperature:
 
 def home(request):
 
+    from django.utils import translation
+    # user_language = 'fi'
+    # translation.activate(user_language)
+    # request.session[translation.LANGUAGE_SESSION_KEY] =user_language
+    # text = _("this is some random text")
+    # if translation.LANGUAGE_SESSION_KEY in request.session:
+    #     del request.session[translation.LANGUAGE_SESSION_KEY]
+   
+    title = _('Homepage')
+    context = {
+        "news_w":page,
+        
+    } 
+
     mapbox_access_token = 'pk.eyJ1IjoiamFoaWR1bDciLCJhIjoiY2tmZHAxODAzMDY1cjJ6cDV6a3o2N25qcSJ9.mcQR9Z0kZ2AqEYm3Q_9sVg'
-    return render(request, 'home.html' ,{'toi_news':toi_news,'wdetails':wdetails,'we_temp':we_temp,'mapbox_access_token' : mapbox_access_token})
+       
+    return render(request, 'home.html',{'toi_news':toi_news,'wdetails':wdetails,'we_temp':we_temp,'mapbox_access_token' : mapbox_access_token,'title':title ,})
 
 
 def complain(request):
@@ -82,9 +99,10 @@ def add_complain_submission(request):
     compain_location = request.POST['compain_location']
     complain_subject = request.POST['complain_subject']
     problem_details = request.POST['problem_details']
+    # test = request.POST['test',False]
 
 
-    compain_details = Complain_details(complainer_name=complainer_name,complainer_email=complainer_email,compain_location=compain_location,complain_subject=complain_subject,problem_details=problem_details)
+    compain_details = Complain_details(complainer_name=complainer_name,complainer_email=complainer_email,compain_location=compain_location,complain_subject=complain_subject,problem_details=problem_details,test=test)
     compain_details.save()
     return render(request,'compalin.html')
 
@@ -184,7 +202,6 @@ def news(request):
     news_title_query = request.GET.get('title_contains')
     # cheack 
    
-
     if news_title_query != '' and news_title_query is not None:
         news_w =news_w.filter(news_title__icontains = news_title_query )
     else: 
@@ -279,10 +296,15 @@ class ChartData(APIView):
     permission_classes = []
 
     def get(self, request, format=None):
-
-        qs_count = User.objects.all().count()
-        labels =['Users','Water', 'Traffic', 'Yellow', 'Green', 'Purple', 'Orange']
-        default_items = [qs_count,1234,10,122,10,200,0]
+     
+        qs_count = Complain_details.objects.all().count()
+        water_count = Complain_details.objects.filter(problem_categories='water').count()
+        traffic_count = Complain_details.objects.filter(problem_categories='traffic').count()
+        loadshedding_count = Complain_details.objects.filter(problem_categories='loadshaading').count()
+        dirty_count = Complain_details.objects.filter(problem_categories='dirtyproblem').count()
+        air_polution_count = Complain_details.objects.filter(problem_categories='airPolution').count()
+        labels =['Water', 'Traffic',  'Load Shedding', 'Darty Problem ', 'Air Pollution']
+        default_items = [water_count,traffic_count,loadshedding_count,dirty_count,air_polution_count]
         data ={
                  "labels":labels,
                  "default":default_items,
